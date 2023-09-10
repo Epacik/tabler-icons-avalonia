@@ -1,0 +1,57 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+      <OutputType>Library</OutputType>
+      <TargetFrameworks>netstandard2.0;net6.0;net7.0</TargetFrameworks>
+      <EnableDefaultCompileItems>False</EnableDefaultCompileItems>
+      <EnableDefaultItems>False</EnableDefaultItems>
+      <NoWarn>CS1591</NoWarn>
+      <IsPackable>True</IsPackable>
+      <Nullable>disable</Nullable>
+      <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="11.0.4" />
+    <PackageReference Include="Avalonia.Svg.Skia" Version="11.0.0.1" />
+  </ItemGroup>
+    
+    <ItemGroup>
+    <AvaloniaResource Include="Assets\**" />
+  </ItemGroup>
+    
+    <ItemGroup>
+      <AvaloniaResource Remove="Assets\.gitkeep" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <AvaloniaXaml Include="TablerIcon.axaml">
+        <SubType>Designer</SubType>
+      </AvaloniaXaml>
+    </ItemGroup>
+    
+    <ItemGroup>
+      <Compile Include="Extensions.cs" />
+      <Compile Include="TablerIcon.axaml.cs" />
+      <Compile Include="TablerIconSource.cs" />
+      <Compile Include="TablerIconSourceExtension.cs" />
+      <Compile Include="$(IntermediateOutputPath)TablerIcons/TablerIcons.g.cs" />
+      <Compile Include="Utils.cs" />
+      <Compile Include="ValueAttribute.cs" />
+    </ItemGroup>
+
+
+  <ItemGroup>
+    <None Include="Assets\.gitkeep" />
+    <None Include="prebuild.ps1" />
+  </ItemGroup>
+
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="pwsh $(ProjectDir)prebuild.ps1 -ObjPath $(IntermediateOutputPath)" />
+  </Target>
+    <Target AfterTargets="Clean" Name="AfterClean">
+        <Message Text="Removing '$(IntermediateOutputPath)TablerIcons/TablerIcons.g.cs'" Importance="normal" ContinueOnError="true" />
+        <Delete Files="$(IntermediateOutputPath)TablerIcons/TablerIcons.g.cs" ContinueOnError="true" />
+    </Target>
+</Project>

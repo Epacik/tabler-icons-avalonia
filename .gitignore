@@ -33,3 +33,5 @@ packages/icons*/icons/*
 
 .turbo
 .sass-cache
+/packages/icons-avalonia/src/TablerIcons.Avalonia/.vscode
+/packages/icons-avalonia/src/TablerIcons.Avalonia/Assets/TablerIcons

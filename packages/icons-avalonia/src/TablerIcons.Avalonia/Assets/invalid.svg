@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="120"
+   height="120"
+   viewBox="0 0 120 120"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   sodipodi:docname="invalid.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#111111"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     showgrid="false"
+     inkscape:zoom="7.0916667"
+     inkscape:cx="60"
+     inkscape:cy="54.994125"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <rect
+       x="4.9353702"
+       y="9.4477086"
+       width="106.46298"
+       height="43.9953"
+       id="rect236" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       aria-label="INVALID"
+       transform="matrix(1.0912385,0.81244011,-0.8086117,1.0964051,19.816388,-8.6735857)"
+       id="text234"
+       style="font-size:24px;letter-spacing:0.69px;white-space:pre;shape-inside:url(#rect236);fill:#002819;stroke:#005233;stroke-width:2.4">
+      <path
+         d="M 12.087547,31.28427 H 5.8955469 v -1.248 l 2.016,-0.456 v -13.704 l -2.016,-0.48 v -1.248 h 6.1920001 v 1.248 l -2.016,0.48 v 13.704 l 2.016,0.456 z"
+         style="font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans';fill:#d40000;stroke:none"
+         id="path1054" />
+      <path
+         d="m 29.673563,31.28427 h -2.52 l -9.168,-14.232 h -0.096 q 0.048,0.84 0.12,2.088 0.072,1.248 0.072,2.568 v 9.576 h -1.992 v -17.136 h 2.496 l 9.144,14.184 h 0.096 q -0.024,-0.384 -0.072,-1.152 -0.024,-0.768 -0.072,-1.656 -0.024,-0.912 -0.024,-1.704 v -9.672 h 2.016 z"
+         style="font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans';fill:#d40000;stroke:none"
+         id="path1056" />
+      <path
+         d="m 47.091568,14.14827 -6.12,17.136 h -2.16 l -6.12,-17.136 h 2.256 l 3.864,10.992 q 0.384,1.056 0.624,1.992 0.264,0.912 0.456,1.752 0.168,-0.84 0.432,-1.776 0.264,-0.936 0.648,-2.016 l 3.84,-10.944 z"
+         style="font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans';fill:#d40000;stroke:none"
+         id="path1058" />
+      <path
+         d="m 59.901556,31.28427 -2.064,-5.304 h -6.792 l -2.04,5.304 h -2.184 l 6.696,-17.208 h 1.944 l 6.672,17.208 z m -2.712,-7.224 -1.92,-5.184 q -0.072,-0.192 -0.24,-0.696 -0.168,-0.504 -0.336,-1.032 -0.144,-0.552 -0.24,-0.84 -0.192,0.744 -0.408,1.464 -0.192,0.696 -0.336,1.104 l -1.944,5.184 z"
+         style="font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans';fill:#d40000;stroke:none"
+         id="path1060" />
+      <path
+         d="m 65.175553,31.28427 v -17.136 h 2.16 v 15.216 h 7.488 v 1.92 z"
+         style="font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans';fill:#d40000;stroke:none"
+         id="path1062" />
+      <path
+         d="m 83.265556,31.28427 h -6.192 v -1.248 l 2.016,-0.456 v -13.704 l -2.016,-0.48 v -1.248 h 6.192 v 1.248 l -2.016,0.48 v 13.704 l 2.016,0.456 z"
+         style="font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans';fill:#d40000;stroke:none"
+         id="path1064" />
+      <path
+         d="m 100.99558,22.54827 q 0,4.344 -2.376005,6.552 -2.352,2.184 -6.576,2.184 h -4.776 v -17.136 h 5.28 q 2.568,0 4.464,0.96 1.92,0.96 2.952,2.832 1.032005,1.872 1.032005,4.608 z m -2.280005,0.072 q 0,-3.432 -1.704,-5.016 -1.68,-1.608 -4.776,-1.608 h -2.808 v 13.44 h 2.328 q 6.96,0 6.96,-6.816 z"
+         style="font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans';fill:#d40000;stroke:none"
+         id="path1066" />
+    </g>
+  </g>
+</svg>
