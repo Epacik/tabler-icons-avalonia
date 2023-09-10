@@ -38,3 +38,5 @@ packages/icons*/icons/*
 !/**/.gitkeep
 *.tgz
 .env
+/packages/icons-avalonia/src/TablerIcons.Avalonia/.vscode
+/packages/icons-avalonia/src/TablerIcons.Avalonia/Assets/TablerIcons
