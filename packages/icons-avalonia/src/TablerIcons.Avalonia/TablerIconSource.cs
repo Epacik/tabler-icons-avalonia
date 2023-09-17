@@ -81,8 +81,39 @@ namespace TablerIcons.Avalonia
                     break;
             }
 
-            //this.InheritanceParent?.InvalidateVisual();
-            Invalidated?.Invoke(this, EventArgs.Empty);
+            InvalidateImage();
+        }
+
+        private void InvalidateImage()
+        {
+            var lifetime = Application.Current.ApplicationLifetime;
+            if (lifetime is IClassicDesktopStyleApplicationLifetime classic)
+            {
+                foreach (var window in classic.Windows)
+                {
+                    foreach (var visual in (IEnumerable<Visual>)window.GetVisualDescendants())
+                    {
+                        var img = visual as Image;
+
+                        if (img is null || img.Source != this)
+                            continue;
+
+                        img.InvalidateVisual();
+                    }
+                }
+            }
+            else if (lifetime is ISingleViewApplicationLifetime singleView)
+            {
+                foreach (var visual in (IEnumerable<Visual>)singleView.MainView.GetVisualDescendants())
+                {
+                    var img = visual as Image;
+
+                    if (img is null || img.Source != this)
+                        continue;
+
+                    img.InvalidateVisual();
+                }
+            }
         }
     }
 }
