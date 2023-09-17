@@ -12,7 +12,6 @@
 
 
   <ItemGroup>
-    <PackageReference Include="Avalonia" Version="11.0.4" />
     <PackageReference Include="Avalonia.Svg.Skia" Version="11.0.0.1" />
   </ItemGroup>
     
