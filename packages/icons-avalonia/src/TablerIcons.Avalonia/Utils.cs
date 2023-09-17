@@ -53,7 +53,7 @@ namespace TablerIcons.Avalonia
                 var document = SvgDocument.Open<SvgDocument>(stream);
 
                 document.StrokeWidth = stroke;
-                Utils.CreatePaintServer(color, document);
+                SetColor(document, color);
                 if (size is float s)
                 {
                     document.Height = new SvgUnit(SvgUnitType.Pixel, s);
