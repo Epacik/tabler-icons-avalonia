@@ -13,15 +13,8 @@
     <vm:MainViewModel />
   </Design.DataContext>
 
-    <!--<WrapPanel x:Name="Wrap" >
-        <Image Source="{tia:TablerIconSource IconArrowForwardUpDouble, Size=200, Stroke=1, Color='#330455'}"/>
-        <ContentControl Content="{tia:TablerIconSource Icon123, Size=200, Stroke=1}"/>
-    </WrapPanel>-->
     <Grid>
         <ScrollViewer>
-            <!--<WrapPanel x:Name="_icons" >
-                
-            </WrapPanel>-->
             <ListBox ItemsSource="{Binding Icons}">
                 <ListBox.ItemTemplate >
                     <DataTemplate>
@@ -29,12 +22,12 @@
                             <tia:TablerIcon Icon="{Binding Icon}"
                                             Size="40"
                                             Color="{Binding Color}"
-                                            Stroke="{Binding Stroke}"/>
+                                            StrokeWidth="{Binding Stroke}"/>
                             <Image Width="40" Height="40">
                                 <Image.Source>
                                     <tia:TablerIconSource Icon="{Binding Icon}"
                                                           Color="{Binding Color}"
-                                                          Stroke="{Binding Stroke}"/>
+                                                          StrokeWidth="{Binding Stroke}"/>
                                 </Image.Source>
                             </Image>
 
@@ -43,12 +36,12 @@
                             <tia:TablerIcon Icon="IconAbc"
                                             Size="40"
                                             Color="Red"
-                                            Stroke="2"/>
+                                            StrokeWidth="2"/>
                             <Image Width="40" Height="40">
                                 <Image.Source>
                                     <tia:TablerIconSource Icon="Icon123"
                                                           Color="Green"
-                                                          Stroke="2"/>
+                                                          StrokeWidth="2"/>
                                 </Image.Source>
                             </Image>
                         </StackPanel>

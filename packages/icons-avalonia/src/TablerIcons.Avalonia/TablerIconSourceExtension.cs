@@ -24,14 +24,14 @@ namespace TablerIcons.Avalonia
             Icon = icon;
         }
         public float? Size { get; set; }
-        public float Stroke { get; set; } = 2;
+        public float StrokeWidth { get; set; } = 2;
         public string Color { get; set; } = "Black";
         public Icons Icon { get; set; }
 
         public override object ProvideValue(IServiceProvider serviceProvider)
         {
 
-            var (document, source) = Utils.GetSvgSource(Icon, Size, Stroke, Color);
+            var (document, source) = Utils.GetSvgSource(Icon, Size, StrokeWidth, Color);
 
             var target = (IProvideValueTarget)serviceProvider.GetService(typeof(IProvideValueTarget));
             if (target.TargetProperty is AvaloniaProperty property)

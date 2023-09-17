@@ -8,7 +8,10 @@ using Svg;
 using Avalonia.Media.Imaging;
 
 using SvgImage = Avalonia.Svg.Skia.SvgImage;
-
+using Avalonia.Controls.ApplicationLifetimes;
+using Avalonia.LogicalTree;
+using Avalonia.Controls;
+using Avalonia.VisualTree;
 
 namespace TablerIcons.Avalonia
 {
@@ -16,7 +19,7 @@ namespace TablerIcons.Avalonia
     {
         public event EventHandler Invalidated;
         public static readonly StyledProperty<Icons?> IconProperty =
-            AvaloniaProperty.Register<TablerIcon, Icons?>("Icon", null, false);
+            AvaloniaProperty.Register<TablerIcon, Icons?>(nameof(Icon), null, false);
 
         public Icons? Icon
         {
@@ -24,17 +27,17 @@ namespace TablerIcons.Avalonia
             set => SetValue(IconProperty, value);
         }
 
-        public static readonly StyledProperty<float> StrokeProperty =
-            AvaloniaProperty.Register<TablerIcon, float>("Stroke", 2f, false);
+        public static readonly StyledProperty<float> StrokeWidthProperty =
+            AvaloniaProperty.Register<TablerIcon, float>(nameof(StrokeWidth), 2f, false);
 
-        public float Stroke
+        public float StrokeWidth
         {
-            get => GetValue(StrokeProperty);
-            set => SetValue(StrokeProperty, value);
+            get => GetValue(StrokeWidthProperty);
+            set => SetValue(StrokeWidthProperty, value);
         }
 
         public static readonly StyledProperty<string> ColorProperty =
-            AvaloniaProperty.Register<TablerIcon, string>("Color", "Black", false);
+            AvaloniaProperty.Register<TablerIcon, string>(nameof(Color), "Black", false);
 
         public string Color
         {
@@ -50,8 +53,11 @@ namespace TablerIcons.Avalonia
             if (Icon is null)
                 return;
 
-            (_document, Source) = Utils.GetSvgSource((Icons)Icon, -1f, Stroke, Color);
-            
+            Source?.Dispose();
+            Source = null;
+            _document = null;
+
+            (_document, Source) = Utils.GetSvgSource((Icons)Icon, 100f, StrokeWidth, Color);
         }
 
         protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
@@ -75,8 +81,8 @@ namespace TablerIcons.Avalonia
                     Source.FromSvgDocument(_document);
                     break;
 
-                case nameof(Stroke):
-                    _document.StrokeWidth = Stroke;
+                case nameof(StrokeWidth):
+                    _document.StrokeWidth = StrokeWidth;
                     Source.FromSvgDocument(_document);
                     break;
             }
