@@ -1,7 +1,13 @@
-﻿using Avalonia.Threading;
+﻿using Avalonia.Controls;
+using Avalonia.Threading;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using MyToolkit.Collections;
 using System;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace TablerIcons.Avalonia.Preview.ViewModels;
 
@@ -9,32 +15,108 @@ public partial class MainViewModel : ViewModelBase
 {
     public MainViewModel()
     {
-        var random = new Random();
-        string values = "0123456789ABCDEF";
-        Func<char> r = () => values[random.Next(0, values.Length)];
-        Func<float> s = () => (float)((random.NextDouble() + 0.1) * 2);
         foreach (var value in Enum.GetValues<Icons>())
         {
-            var color = $"#{r()}{r()}{r()}{r()}{r()}{r()}";
-            Icons.Add(new(value, value.ToString(), color, s()));
+            Icons.Add(new(value, value.ToString()));
         }
 
-        new DispatcherTimer(
-            TimeSpan.FromSeconds(2),
-            DispatcherPriority.Default,
-            (_, e) =>
-        {
-            foreach(var icon in Icons)
-            {
-                icon.Color = $"#{r()}{r()}{r()}{r()}{r()}{r()}";
-                icon.Stroke = s();
-            }
-        }).Start();
+        _iconsView = new ObservableCollectionView<IconModel>(Icons);
+        _iconsView.Filter = (x) 
+            => string.IsNullOrWhiteSpace(SearchText) || x.Name.Contains(SearchText, StringComparison.OrdinalIgnoreCase);
+        _iconsView.Limit = 200;
+        _iconsView.Offset = 0;
+
+        TotalPages = GetTotalPages();
+        CurrentPage = 1;
     }
+
     public string Greeting => "Welcome to Avalonia!";
 
     [ObservableProperty]
-    private ObservableCollection<IconModel> _icons = new();
+    ObservableCollection<IconModel> _icons = new();
+
+    [ObservableProperty]
+    ObservableCollectionView<IconModel> _iconsView;
+
+    [ObservableProperty]
+    int _totalPages;
+
+    [ObservableProperty]
+    int _currentPage;
+    partial void OnCurrentPageChanged(int value)
+    {
+        IconsView.Offset = value * IconsView.Limit;
+        GoToFirstPageCommand.NotifyCanExecuteChanged();
+        GoToPreviousPageCommand.NotifyCanExecuteChanged();
+        GoToNextPageCommand.NotifyCanExecuteChanged();
+        GoToLastPageCommand.NotifyCanExecuteChanged();
+    }
+
+    [ObservableProperty]
+    string _searchText;
+
+    CancellationTokenSource? _startSearchCancellationToken;
+    partial void OnSearchTextChanged(string value)
+    {
+        Task.Run(async () =>
+        {
+            if (_startSearchCancellationToken is not null)
+            {
+                _startSearchCancellationToken.Cancel();
+            }
+
+            try
+            {
+                _startSearchCancellationToken = new CancellationTokenSource();
+                var token = _startSearchCancellationToken.Token;
+                await Task.Delay(300, token);
+
+                if (token.IsCancellationRequested)
+                    throw new OperationCanceledException();
+
+                IconsView.Refresh();
+
+                Dispatcher.UIThread.Invoke(() =>
+                {
+                    TotalPages = GetTotalPages();
+                    CurrentPage = 1;
+                    GoToFirstPageCommand.NotifyCanExecuteChanged();
+                    GoToPreviousPageCommand.NotifyCanExecuteChanged();
+                    GoToNextPageCommand.NotifyCanExecuteChanged();
+                    GoToLastPageCommand.NotifyCanExecuteChanged();
+                });
+            }
+            catch (OperationCanceledException) { }
+        });
+
+    }
+
+    private int GetTotalPages()
+    {
+        var totalCount = Icons.Count(IconsView.Filter);
+        var currentCount = IconsView.Count;
+
+        if (currentCount == 0 || totalCount == 0)
+        {
+            return 1;
+        }
+
+        return (totalCount / currentCount);
+    }
+
+    [RelayCommand(CanExecute = nameof(CanGoToPreviousPage))]
+    void GoToFirstPage() => CurrentPage = 1;
+
+    [RelayCommand(CanExecute = nameof(CanGoToPreviousPage))]
+    void GoToPreviousPage() => CurrentPage--;
+    bool CanGoToPreviousPage() => CurrentPage > 1;
+
+    [RelayCommand(CanExecute = nameof(CanGoToNextPage))]
+    void GoToNextPage() => CurrentPage++;
+
+    [RelayCommand(CanExecute = nameof(CanGoToNextPage))]
+    void GoToLastPage() => CurrentPage = TotalPages;
+    bool CanGoToNextPage() => CurrentPage < TotalPages;
 }
 
 public partial class IconModel : ObservableObject
@@ -44,16 +126,10 @@ public partial class IconModel : ObservableObject
     Icons _icon;
     [ObservableProperty]
     string _name;
-    [ObservableProperty]
-    string _color;
-    [ObservableProperty]
-    float _stroke;
     
-    public IconModel(Icons icon, string name, string color, float stroke)
+    public IconModel(Icons icon, string name)
     {
         Icon = icon;
         Name = name;
-        Color = color;
-        Stroke = stroke;
     }
 }

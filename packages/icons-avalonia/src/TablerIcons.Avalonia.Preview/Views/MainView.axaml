@@ -13,41 +13,85 @@
     <vm:MainViewModel />
   </Design.DataContext>
 
-    <Grid>
-        <ScrollViewer>
-            <ListBox ItemsSource="{Binding Icons}">
+    <Grid RowDefinitions="50,*,50">
+
+        <Border Margin="10,5">
+            <Grid >
+                <TextBox
+                    FontSize="20"
+                    Padding="40,5,5,5"
+                    Text="{Binding SearchText}"/>
+                <tia:TablerIcon 
+                    Icon="IconSearch"
+                    Width="30"
+                    Height="30"
+                    HorizontalAlignment="Left"
+                    Margin="5"/>
+                
+            </Grid>
+        </Border>
+        
+        <ScrollViewer Grid.Row="1">
+            <ListBox ItemsSource="{Binding IconsView}">
                 <ListBox.ItemTemplate >
                     <DataTemplate>
-                        <StackPanel Orientation="Horizontal" x:DataType="vm:IconModel" Spacing="10">
+                        <StackPanel
+                            x:DataType="vm:IconModel"
+                            Spacing="10"
+                            HorizontalAlignment="Center">
                             <tia:TablerIcon Icon="{Binding Icon}"
-                                            Size="40"
-                                            Color="{Binding Color}"
-                                            StrokeWidth="{Binding Stroke}"/>
-                            <Image Width="40" Height="40">
-                                <Image.Source>
-                                    <tia:TablerIconSource Icon="{Binding Icon}"
-                                                          Color="{Binding Color}"
-                                                          StrokeWidth="{Binding Stroke}"/>
-                                </Image.Source>
-                            </Image>
+                                            Width="40"
+                                            Height="40"
+                                            Brush="Black"
+                                            StrokeWidth="2"/>
 
                             <TextBlock Text="{Binding Name}"/>
-
-                            <tia:TablerIcon Icon="IconAbc"
-                                            Size="40"
-                                            Color="Red"
-                                            StrokeWidth="2"/>
-                            <Image Width="40" Height="40">
-                                <Image.Source>
-                                    <tia:TablerIconSource Icon="Icon123"
-                                                          Color="Green"
-                                                          StrokeWidth="2"/>
-                                </Image.Source>
-                            </Image>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
+
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel  />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
             </ListBox>
         </ScrollViewer>
+
+        <StackPanel
+            Grid.Row="2"
+            Orientation="Horizontal"
+            HorizontalAlignment="Center"
+            Spacing="10">
+            <Button
+                Content="{tia:TablerIcon IconChevronsLeft}"
+                Command="{Binding GoToFirstPageCommand}"/>
+            <Button
+                Content="{tia:TablerIcon IconChevronLeft}"
+                Command="{Binding GoToPreviousPageCommand}"/>
+            
+            <NumericUpDown 
+                Minimum="1"
+                Maximum="{Binding TotalPages}"
+                Value="{Binding CurrentPage}"
+                Height="20"
+                ShowButtonSpinner="False"
+                FormatString="0"
+                VerticalAlignment="Center"/>
+
+            <TextBlock 
+                FontSize="20"
+                VerticalAlignment="Center">
+                <Run Text="/"/>
+                <Run Text="{Binding TotalPages}"/>
+            </TextBlock>
+            
+            <Button
+                Content="{tia:TablerIcon IconChevronRight}"
+                Command="{Binding GoToNextPageCommand}"/>
+            <Button
+                Content="{tia:TablerIcon IconChevronsRight}"
+                Command="{Binding GoToLastPageCommand}"/>
+        </StackPanel>
     </Grid>
 </UserControl>
