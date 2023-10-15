@@ -12,6 +12,8 @@
 
 
   <ItemGroup>
+    <PackageReference Include="Avalonia.Controls.Skia" Version="11.0.0.3" />
+    <PackageReference Include="Avalonia.Skia" Version="11.0.4" />
     <PackageReference Include="Avalonia.Svg.Skia" Version="11.0.0.1" />
   </ItemGroup>
     
@@ -32,10 +34,11 @@
     <ItemGroup>
       <Compile Include="Extensions.cs" />
       <Compile Include="TablerIcon.axaml.cs" />
+      <Compile Include="TablerIconDrawOperation.cs" />
       <Compile Include="TablerIconSource.cs" />
       <Compile Include="TablerIconSourceExtension.cs" />
+      <Compile Include="TablerIconExtension.cs" />
       <Compile Include="$(IntermediateOutputPath)TablerIcons/TablerIcons.g.cs" />
-      <Compile Include="Utils.cs" />
       <Compile Include="ValueAttribute.cs" />
     </ItemGroup>
 

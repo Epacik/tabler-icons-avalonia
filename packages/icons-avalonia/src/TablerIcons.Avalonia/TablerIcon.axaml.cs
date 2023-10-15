@@ -1,21 +1,42 @@
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.Primitives;
 using Avalonia.Data;
 using Avalonia.Markup.Xaml;
 using Avalonia.Media;
 using Avalonia.Platform;
 using Avalonia.Svg.Skia;
+using Avalonia.VisualTree;
 using Svg;
 using System;
+using System.Linq;
 using SvgImage = Avalonia.Svg.Skia.SvgImage;
 
 namespace TablerIcons.Avalonia
 {
-    public partial class TablerIcon : UserControl
+    public partial class TablerIcon : Control
     {
+        static TablerIcon()
+        {
+            AffectsRender<TablerIcon>(
+                IconProperty,
+                StrokeWidthProperty,
+                WidthProperty,
+                MaxWidthProperty,
+                MinWidthProperty,
+                HeightProperty,
+                MaxHeightProperty,
+                MinHeightProperty,
+                BrushProperty
+                );
+
+            WidthProperty.OverrideDefaultValue(typeof(TablerIcon), 30);
+            HeightProperty.OverrideDefaultValue(typeof(TablerIcon), 30);
+        }
         public TablerIcon()
         {
             InitializeComponent();
+            
         }
 
         public static readonly StyledProperty<Icons?> IconProperty =
@@ -28,19 +49,6 @@ namespace TablerIcons.Avalonia
         {
             get => GetValue(IconProperty);
             set => SetValue(IconProperty, value);
-        }
-
-        public static readonly StyledProperty<double> SizeProperty =
-            AvaloniaProperty.Register<TablerIcon, double>(
-                nameof(Size),
-                16,
-                false,
-                BindingMode.TwoWay);
-
-        public double Size
-        {
-            get => GetValue(SizeProperty);
-            set => SetValue(SizeProperty, value);
         }
 
         public static readonly StyledProperty<float> StrokeWidthProperty =
@@ -56,61 +64,54 @@ namespace TablerIcons.Avalonia
             set => SetValue(StrokeWidthProperty, value);
         }
 
-        public static readonly StyledProperty<string> ColorProperty =
-            AvaloniaProperty.Register<TablerIcon, string>(
-                nameof(Color),
-                "Black",
+        public static readonly StyledProperty<IBrush> BrushProperty =
+            AvaloniaProperty.Register<TablerIcon, IBrush>(
+                nameof(Brush),
+                Brushes.Black,
                 false,
                 BindingMode.TwoWay);
 
-        public string Color
+        public IBrush Brush
         {
-            get => GetValue(ColorProperty);
-            set => SetValue(ColorProperty, value);
-        }
-
-        private SvgDocument _document;
-        private SvgSource _source;
-
-        private void SetImage()
-        {
-            if (Icon is null)
-                return;
-
-            _source?.Dispose();
-            _source = null;
-
-            (_document, _source) = Utils.GetSvgSource((Icons)Icon, (float)Size, StrokeWidth, Color);
-
-            Img.Source = new SvgImage { Source = _source };
+            get => GetValue(BrushProperty);
+            set => SetValue(BrushProperty, value);
         }
 
         protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
         {
             base.OnPropertyChanged(change);
 
-            if(change.Property.Name == nameof(Icon))
-            {
-                SetImage();
-            }
-
-            if (_document is null || _source is null)
-                return;
-
             switch (change.Property.Name)
             {
-                case nameof(Color) when Color is string:
-                    Utils.SetColor(_document, Color);
-                    _source.FromSvgDocument(_document);
-                    break;
-
+                case nameof(Icon):
                 case nameof(StrokeWidth):
-                    _document.StrokeWidth = StrokeWidth;
-                    _source.FromSvgDocument(_document);
+                case nameof(Brush):
+                case nameof(Width):
+                case nameof(MaxWidth):
+                case nameof(MinWidth):
+                case nameof(Height):
+                case nameof(MaxHeight):
+                case nameof(MinHeight):
+                    var visuals = this.GetVisualChildren();
+                    var img = visuals.FirstOrDefault(x => x is Image);
+                    img?.InvalidateVisual();
                     break;
             }
-
-            Img.InvalidateVisual();
         }
+
+        public override void Render(DrawingContext context)
+        {
+            base.Render(context);
+            var source = new TablerIconSource()
+            {
+                Brush = Brush,
+                Icon = Icon,
+                StrokeWidth = StrokeWidth,
+            };
+
+            var rect = new Rect(DesiredSize - Margin);
+            source.Draw(context, rect, rect);
+        }
+
     }
 }
