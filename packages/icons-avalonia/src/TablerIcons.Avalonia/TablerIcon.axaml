@@ -1,4 +1,4 @@
-<UserControl xmlns="https://github.com/avaloniaui"
+<Control xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -6,13 +6,4 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="TablerIcons.Avalonia.TablerIcon"
              x:Name="Self">
-    <!--<ContentControl Content="{tia:TablerIconSource 
-                        Icon={CompiledBinding Icon, Source={ResolveByName Self}, DataType={x:Type tia:TablerIcon}},
-                        Size={CompiledBinding Size, Source={ResolveByName Self}, DataType={x:Type tia:TablerIcon}},
-                        Stroke={CompiledBinding Stroke, Source={ResolveByName Self}, DataType={x:Type tia:TablerIcon}},
-                        Color={CompiledBinding Color, Source={ResolveByName Self}, DataType={x:Type tia:TablerIcon}}
-                    }"/>-->
-    <Image x:Name="Img" 
-           Width="{CompiledBinding Size, Source={ResolveByName Self}, DataType={x:Type tia:TablerIcon}}"
-           Height="{CompiledBinding Size, Source={ResolveByName Self}, DataType={x:Type tia:TablerIcon}}"/>
-</UserControl>
+</Control>
