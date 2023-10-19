@@ -1,0 +1,9 @@
+<Project>
+
+  <ItemGroup>
+      <CompilerVisibleProperty Include="IconGenerator" />
+
+      <CompilerVisibleItemMetadata Include="AdditionalFiles"
+                                   MetadataName="IconGenerator" />
+    </ItemGroup>
+</Project>

@@ -31,7 +31,8 @@ namespace TablerIcons.Avalonia
             if (_icon is null)
                 return;
 
-            var glyph = _icon?.GetAttributeOfType<ValueAttribute>().Value;
+            var i = _icon.Value;
+            var path = i.GetPathData();
 
             if (destRect.Width < 0 || destRect.Height < 0)
                 return;
@@ -41,7 +42,7 @@ namespace TablerIcons.Avalonia
                 context.Custom(
                     new TablerIconDrawOperation(
                         new Rect(0, 0, destRect.Width, destRect.Height),
-                        glyph,
+                        path,
                         _strokeWidth,
                         GetShader(destRect),
                         _brush?.Opacity ?? 1));

@@ -40,7 +40,7 @@
                             <tia:TablerIcon Icon="{Binding Icon}"
                                             Width="90"
                                             Height="90"
-                                            StrokeWidth="2">
+                                            StrokeWidth="4">
                                 <tia:TablerIcon.Brush>
                                     <RadialGradientBrush Center="50%,50%">
                                         <GradientStop Color="Red" Offset="0.1"/>

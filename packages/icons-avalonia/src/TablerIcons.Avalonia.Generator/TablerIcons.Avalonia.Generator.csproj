@@ -3,10 +3,13 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
         <Nullable>enable</Nullable>
-        <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
-        <CompilerGeneratedFilesOutputPath>Generated</CompilerGeneratedFilesOutputPath>
+        <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
         <IsRoslynComponent>true</IsRoslynComponent>
         <LangVersion>latest</LangVersion>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <!-- Generates a package at build -->
+        <IncludeBuildOutput>false</IncludeBuildOutput>
+        <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     </PropertyGroup>
 
     <ItemGroup>
@@ -15,10 +18,17 @@
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.6.0" />
-        <InternalsVisibleTo Include="TablerIcons.Avalonia" />
-    </ItemGroup>
-
-    <ItemGroup>
+        <PackageReference Include="Microsoft.Net.Compilers.Toolset" Version="4.7.0">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="System.Text.Json" Version="7.0.3"  PrivateAssets="all" GeneratePathProperty="true" />
+        
         <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+
+        <None Include="$(PkgSystem_Text_Json)\lib\netstandard2.0\*.dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+
+
+        <None Include="TablerIcons.Avalonia.Generator.props" Pack="true" PackagePath="build" Visible="false" />
     </ItemGroup>
 </Project>
