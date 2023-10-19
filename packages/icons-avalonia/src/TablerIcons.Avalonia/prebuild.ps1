@@ -2,14 +2,20 @@
     [Parameter()] [string] $ObjPath
 )
 
+# pwsh $(ProjectDir)prebuild.ps1 -ObjPath $(IntermediateOutputPath)
+
 $intermediateOutput = Join-Path $ObjPath "TablerIcons";
 $assetsPath = Join-Path $PSScriptRoot "Assets" "TablerIcons";
+$webfontAssetsPath = Join-Path $PSScriptRoot "Assets" "tabler-icons.ttf";
 $iconsPath = Join-Path $PSScriptRoot ".." ".." ".." ".." "icons";
+$webfontPath = Join-Path $PSScriptRoot ".." ".." ".." "icons-webfont" "fonts" "tabler-icons.eot";
+$webfontCssPath = Join-Path $PSScriptRoot ".." ".." ".." "icons-webfont" "tabler-icons.min.css";
 
 $generatedFilePath = Join-Path $intermediateOutput "TablerIcons.g.cs";
 
-# exit if file exists
+Copy-Item $webfontPath -Destination $webfontAssetsPath -Force;
 
+# exit if file exists
 if ((Test-Path -Path $generatedFilePath -PathType Leaf)) {
     exit 0;
 }
@@ -27,57 +33,58 @@ $maxThreads = [System.Math]::Max([System.Environment]::ProcessorCount - 1, 1);
 
 # copy all icons to use as assets
 
-$copyMt = {
-    param($info)
+# $copyMt = {
+#     param($info)
 
-    $files = Get-ChildItem $info.SourcePath;
-    $targetPath = $info.TargetPath;
-    $threadNumber = $info.ThreadNumber;
-    $totalThreads = $info.TotalThreads;
+#     $files = Get-ChildItem $info.SourcePath;
+#     $targetPath = $info.TargetPath;
+#     $threadNumber = $info.ThreadNumber;
+#     $totalThreads = $info.TotalThreads;
 
-    for ($i = $threadNumber; $i -lt $files.Length; $i = $i + $totalThreads){
-        $file = $files[$i];
+#     for ($i = $threadNumber; $i -lt $files.Length; $i = $i + $totalThreads){
+#         $file = $files[$i];
 
-        $src = $file.FullName;
-        $tgt = Join-Path $targetPath ($file.Name);
+#         $src = $file.FullName;
+#         $tgt = Join-Path $targetPath ($file.Name);
 
-        try {
-            if ((Test-Path -Path $targetPath -PathType Leaf) -ne $true) {
-                continue;
-            }
-        }
-        catch {
-            continue;
-        }
+#         try {
+#             if ((Test-Path -Path $targetPath -PathType Leaf) -ne $true) {
+#                 continue;
+#             }
+#         }
+#         catch {
+#             continue;
+#         }
 
-        Write-Output "Copying '$src' to '$tgt'";
+#         Write-Output "Copying '$src' to '$tgt'";
 
-        Copy-Item $src -Destination $tgt -Force
-    }
-}
+#         Copy-Item $src -Destination $tgt -Force
+#     }
+# }
 
-$jobs = [System.Collections.Generic.List[object]]::new();
-for ($i = 0; $i -lt $maxThreads; $i++) {
-    $info = [PSCustomObject]@{
-        SourcePath = $iconsPath;
-        TargetPath = $assetsPath;
-        ThreadNumber = $i;
-        TotalThreads = $maxThreads;
-    };
-    $job = Start-Job -ScriptBlock $copyMt -ArgumentList $info;
-    Write-Output $job;
-    $jobs.Add($job);
-}
+# $jobs = [System.Collections.Generic.List[object]]::new();
+# for ($i = 0; $i -lt $maxThreads; $i++) {
+#     $info = [PSCustomObject]@{
+#         SourcePath = $iconsPath;
+#         TargetPath = $assetsPath;
+#         ThreadNumber = $i;
+#         TotalThreads = $maxThreads;
+#     };
+#     $job = Start-Job -ScriptBlock $copyMt -ArgumentList $info;
+#     Write-Output $job;
+#     $jobs.Add($job);
+# }
 
-Wait-Job $jobs
+# Wait-Job $jobs
 
-foreach ($job in $jobs)
-{
-    foreach ($err in $job.ChildJobs[0].Error)
-    {
-        Write-Error $err;
-    }
-}
+
+# foreach ($job in $jobs)
+# {
+#     foreach ($err in $job.ChildJobs[0].Error)
+#     {
+#         Write-Error $err;
+#     }
+# }
 
 function ConvertTo-PascalCase
 {
@@ -93,12 +100,25 @@ function ConvertTo-PascalCase
 
 $lines = "";
 
-foreach ($file in (Get-ChildItem $assetsPath))
-{
-    $key = ConvertTo-PascalCase $file.BaseName;
-    $value = $file.BaseName;
+$content = Get-Content $webfontCssPath;
 
-    $lines += "            [global::TablerIcons.Avalonia.Value(`"$value`")]Icon$key,`n";
+$matches = [Regex]::Matches($content, '(?:\.ti-)([0-9A-Za-z\-]*)(?:\:before\{content\:\"\\)([a-f0-9]*)(?:\"\})');
+
+# foreach ($file in (Get-ChildItem $assetsPath))
+# {
+#     $key = ConvertTo-PascalCase $file.BaseName;
+#     $value = $file.BaseName;
+
+#     $lines += "            [global::TablerIcons.Avalonia.Value(`"$value`")]Icon$key,`n";
+# }
+
+for ($i = 0; $i -lt $matches.Count; $i++) 
+{
+    $match = $matches[$i];
+    $key = ConvertTo-PascalCase $match.Groups[1];
+    $value = $match.Groups[2].Value.ToUpper();
+
+    $lines += "            [global::TablerIcons.Avalonia.Value(`"\u$value`")]Icon$key,`n";
 }
 
 $out = @"

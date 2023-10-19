@@ -10,11 +10,12 @@ using Avalonia.VisualTree;
 using Svg;
 using System;
 using System.Linq;
+using TablerIcons.Avalonia.Generator;
 using SvgImage = Avalonia.Svg.Skia.SvgImage;
 
 namespace TablerIcons.Avalonia
 {
-    public partial class TablerIcon : Control
+    public sealed partial class TablerIcon : Control
     {
         static TablerIcon()
         {

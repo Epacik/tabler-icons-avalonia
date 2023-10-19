@@ -17,50 +17,33 @@ namespace TablerIcons.Avalonia
 {
     public class TablerIconSource : StyledElement, IImage
     {
-        private SvgDocument _document;
-        private SvgSource _source;
         static TablerIconSource()
         {
         }
 
+        private Rect? _lastRect;
         public Size Size => new Size(
-            _source?.Picture.CullRect.Width ?? 0,
-            _source?.Picture.CullRect.Height ?? 0);
+            _lastRect?.Width ?? 0,
+            _lastRect?.Height ?? 0);
 
         public void Draw(DrawingContext context, Rect sourceRect, Rect destRect)
         {
-            if (_source is null)
+            if (_icon is null)
                 return;
 
-            bool reloadPic = false;
+            var glyph = _icon?.GetAttributeOfType<ValueAttribute>().Value;
 
-            if (_document.Width.Value != destRect.Width)
-            {
-                _document.Width = new SvgUnit(SvgUnitType.Pixel, (float)destRect.Width);
-                reloadPic = true;
-            }
-            if (_document.Height.Value != destRect.Height)
-            {
-                _document.Height = new SvgUnit(SvgUnitType.Pixel, (float)destRect.Height);
-                reloadPic = true;
-            }
-
-            if (reloadPic)
-            {
-                _source.FromSvgDocument(_document);
-            }
-
-            var picSize = _source.Picture.CullRect;
-            if (picSize.Width < 0 || picSize.Height < 0)
+            if (destRect.Width < 0 || destRect.Height < 0)
                 return;
 
             using (context.PushClip(destRect))
             {
                 context.Custom(
                     new TablerIconDrawOperation(
-                        new Rect(0, 0, picSize.Width, picSize.Height),
-                        _source,
-                        GetShader(picSize.ToAvaloniaRect()),
+                        new Rect(0, 0, destRect.Width, destRect.Height),
+                        glyph,
+                        _strokeWidth,
+                        GetShader(destRect),
                         _brush?.Opacity ?? 1));
             }
         }
@@ -73,12 +56,14 @@ namespace TablerIcons.Avalonia
                 false,
                 BindingMode.TwoWay);
 
+        private Icons? _icon;
         public Icons? Icon
         {
             get => GetValue(IconProperty);
             set
             {
                 SetValue(IconProperty, value);
+                _icon = value;
                 InvalidateImage();
             }
         }
@@ -124,34 +109,29 @@ namespace TablerIcons.Avalonia
         {
             base.OnPropertyChanged(change);
 
-            if (change.Property.Name == nameof(Icon))
-            {
-                if (_source is SvgSource)
-                {
-                    _source.Dispose();
-                }
+            //if (change.Property.Name == nameof(Icon))
+            //{
+            //    if (_source is SvgSource)
+            //    {
+            //        _source.Dispose();
+            //    }
 
-                if (Icon is Icons icon)
-                {
-                    (_document, _source) = GetSvgSource(
-                        icon,
-                        100f,
-                        _strokeWidth);
-                }
-            }
+            //    if (Icon is Icons icon)
+            //    {
+            //        (_document, _source) = GetSvgSource(
+            //            icon,
+            //            100f,
+            //            _strokeWidth);
+            //    }
+            //}
 
 
-            if (_document is null || _source is null)
+            if (_icon is null)
                 return;
 
             switch (change.Property.Name)
             {
                 case nameof(StrokeWidth):
-                    _document.StrokeWidth = StrokeWidth;
-                    _source.FromSvgDocument(_document);
-                    InvalidateImage();
-                    break;
-
                 case nameof(Brush):
                 case nameof(Icon):
                     InvalidateImage();
@@ -336,28 +316,5 @@ namespace TablerIcons.Avalonia
             }
         }
 
-        internal static (SvgDocument document, SvgSource source) GetSvgSource(Icons icon, float? size, float stroke)
-        {
-            var name = icon.GetAttributeOfType<ValueAttribute>().Value;
-            var uri = $"avares://TablerIcons.Avalonia/Assets/TablerIcons/{name}.svg";
-
-            using (var stream = AssetLoader.Open(new Uri(uri)))
-            {
-                var document = SvgDocument.Open<SvgDocument>(stream);
-
-                document.StrokeWidth = stroke;
-                if (size is float s)
-                {
-                    document.Height = new SvgUnit(SvgUnitType.Pixel, s);
-                    document.Width = new SvgUnit(SvgUnitType.Pixel, s);
-                }
-
-
-                var source = new SvgSource();
-                source.FromSvgDocument(document);
-
-                return (document, source);
-            }
-        }
     }
 }
