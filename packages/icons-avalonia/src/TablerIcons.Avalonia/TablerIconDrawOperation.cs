@@ -14,27 +14,19 @@ using System.Xml.Linq;
 
 namespace TablerIcons.Avalonia
 {
-    public class TablerIconDrawOperation : ICustomDrawOperation
+    internal class TablerIconDrawOperation : ICustomDrawOperation
     {
-        private static readonly SKTypeface _typeface;
         private readonly Rect _rect;
-        private readonly string _glyph;
+        private readonly IEnumerable<PathData> _pathData;
         private readonly float _strokeWidth;
         private readonly SKShader _sKShader;
         private readonly double _opacity;
 
-        static TablerIconDrawOperation()
-        {
-            var uri = $"avares://TablerIcons.Avalonia/Assets/tabler-icons.woff2";
-            var font = AssetLoader.Open(new Uri(uri));
-            //_typeface = SKTypeface.FromStream(font);
-            _typeface = SKFontManager.Default.CreateTypeface(font, 0);
-        }
 
-        public TablerIconDrawOperation(Rect rect, string glyph, float strokeWidth, SKShader sKShader, double opacity)
+        public TablerIconDrawOperation(Rect rect, IEnumerable<PathData> glyph, float strokeWidth, SKShader sKShader, double opacity)
         {
             _rect = rect;
-            _glyph = glyph;
+            _pathData = glyph;
             _strokeWidth = strokeWidth;
             _sKShader = sKShader;
             _opacity = opacity;
@@ -55,7 +47,7 @@ namespace TablerIcons.Avalonia
         public void Render(ImmediateDrawingContext context)
         {
 
-            if (_glyph is null)
+            if (_pathData is null)
             {
                 return;
             }
@@ -91,42 +83,42 @@ namespace TablerIcons.Avalonia
                 //}
 
                 canvas.Save();
-                var weight = ((int)SKFontStyleWeight.ExtraLight);
 
-                var face = SKFontManager.Default.MatchTypeface(
-                    _typeface,
-                    new SKFontStyle(
-                        weight,
-                        (int)SKFontStyleWidth.Normal,
-                        SKFontStyleSlant.Upright));
-                var font = new SKFont(face, (float)(_rect.Height));
                 // "cut out" the icon out of created rectangle
-                using (var paint = new SKPaint(font))
+
+                foreach (var p in _pathData)
                 {
-                    //paint.BlendMode = SKBlendMode.;
-                    paint.IsAntialias = true;
-                    paint.TextSize = (float)(_rect.Height);
-                    paint.Shader = _sKShader;
+                    if (p.Fill == "none" && p.Stroke == "none")
+                        continue;
 
-                    paint.Color = new SKColor(255,255, 255);
-                    paint.IsStroke = false;
-                    paint.TextAlign = SKTextAlign.Center;
+                    using (var paint = new SKPaint())
+                    {
+                        paint.IsAntialias = true;
+                        paint.Shader = _sKShader;
 
-                    var path = paint.GetTextPath(
-                        _glyph,
-                        (float)(0),
-                        (float)(_rect.Height * 0.9));
+                        paint.Color = new SKColor(255, 255, 255);
+                        paint.IsStroke = p.Stroke != "none";
 
-                    
+                        paint.StrokeWidth = _strokeWidth;
+                        paint.StrokeCap = SKStrokeCap.Round;
+                        paint.StrokeJoin = SKStrokeJoin.Round;
 
-                    canvas.DrawPath(path, paint);
-                    //tempCanvas.DrawPicture(_source.Picture, paint);
-                    //canvas.DrawText(
-                    //    _glyph,
-                    //    (float)(_rect.Width / 2),
-                    //    (float)(_rect.Height * 0.9f),
-                    //    paint);
+                        var path = SKPath.ParseSvgPathData(p.Data);
+
+                        path.Transform(SKMatrix.CreateScale(
+                            (float)(_rect.Width / 24),
+                            (float)(_rect.Height / 24)));
+
+                        canvas.DrawPath(path, paint);
+                        //tempCanvas.DrawPicture(_source.Picture, paint);
+                        //canvas.DrawText(
+                        //    _glyph,
+                        //    (float)(_rect.Width / 2),
+                        //    (float)(_rect.Height * 0.9f),
+                        //    paint);
+                    }
                 }
+                
 
                 //using (var paint = new SKPaint())
                 //{

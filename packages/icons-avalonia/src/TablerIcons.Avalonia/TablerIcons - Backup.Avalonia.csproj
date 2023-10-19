@@ -1,0 +1,63 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+      <OutputType>Library</OutputType>
+      <TargetFrameworks>netstandard2.0;net6.0;net7.0</TargetFrameworks>
+      <EnableDefaultCompileItems>False</EnableDefaultCompileItems>
+      <EnableDefaultItems>False</EnableDefaultItems>
+      <NoWarn>CS1591</NoWarn>
+      <IsPackable>True</IsPackable>
+      <Nullable>disable</Nullable>
+      <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia.Controls.Skia" Version="11.0.0.3" />
+    <PackageReference Include="Avalonia.Skia" Version="11.0.4" />
+    <PackageReference Include="Avalonia.Svg.Skia" Version="11.0.0.1" />
+  </ItemGroup>
+    
+    <ItemGroup>
+    <AvaloniaResource Include="Assets\**" />
+  </ItemGroup>
+    
+    <ItemGroup>
+      <AvaloniaResource Remove="Assets\.gitkeep" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <AvaloniaXaml Include="TablerIcon.axaml">
+        <SubType>Designer</SubType>
+      </AvaloniaXaml>
+    </ItemGroup>
+    
+    <ItemGroup>
+      <Compile Include="AssemblyAttributes.cs" />
+      <Compile Include="Extensions.cs" />
+      <Compile Include="PathData.cs" />
+      <Compile Include="TablerIcon.axaml.cs" />
+      <Compile Include="TablerIconDrawOperation.cs" />
+      <Compile Include="TablerIconSource.cs" />
+      <Compile Include="TablerIconSourceExtension.cs" />
+      <Compile Include="TablerIconExtension.cs" />
+      <!--<Compile Include="$(IntermediateOutputPath)TablerIcons/TablerIcons.g.cs" />-->
+      <Compile Include="ValueAttribute.cs" />
+    </ItemGroup>
+
+
+  <ItemGroup>
+    <None Include="Assets\.gitkeep" />
+    <AdditionalFiles Include="icons\**"
+                     IconGenerator="true" />
+    <None Include="prebuild.ps1" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\TablerIcons.Avalonia.Generator\TablerIcons.Avalonia.Generator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+  </ItemGroup>
+    <Target AfterTargets="Clean" Name="AfterClean">
+        <Message Text="Removing '$(IntermediateOutputPath)TablerIcons/TablerIcons.g.cs'" Importance="normal" ContinueOnError="true" />
+        <Delete Files="$(IntermediateOutputPath)TablerIcons/TablerIcons.g.cs" ContinueOnError="true" />
+    </Target>
+</Project>
