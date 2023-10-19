@@ -35,3 +35,7 @@ packages/icons*/icons/*
 .sass-cache
 /packages/icons-avalonia/src/TablerIcons.Avalonia/.vscode
 /packages/icons-avalonia/src/TablerIcons.Avalonia/Assets/TablerIcons
+/packages/icons-avalonia/src/TablerIcons.Avalonia/Assets/tabler-icons.eot
+/packages/icons-avalonia/src/TablerIcons.Avalonia/Assets/tabler-icons.ttf
+/packages/icons-avalonia/src/TablerIcons.Avalonia/Assets/tabler-icons.woff2
+/packages/icons-avalonia/src/TablerIcons.Avalonia/Assets/tabler-icons.woff

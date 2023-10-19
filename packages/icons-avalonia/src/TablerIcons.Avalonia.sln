@@ -18,7 +18,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TablerIcons.Avalonia.Previe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TablerIcons.Avalonia.Preview.Browser", "TablerIcons.Avalonia.Preview.Browser\TablerIcons.Avalonia.Preview.Browser.csproj", "{BF1AD56E-B47C-4BF9-9C44-E93DAEC0B85B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TablerIcons.Avalonia", "TablerIcons.Avalonia\TablerIcons.Avalonia.csproj", "{D1D80157-EECF-4475-9208-938B298036CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TablerIcons.Avalonia", "TablerIcons.Avalonia\TablerIcons.Avalonia.csproj", "{D1D80157-EECF-4475-9208-938B298036CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TablerIcons.Avalonia.Generator", "TablerIcons.Avalonia.Generator\TablerIcons.Avalonia.Generator.csproj", "{7927CD05-F893-4562-B545-FCDF217DC61C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -54,6 +56,10 @@ Global
 		{D1D80157-EECF-4475-9208-938B298036CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1D80157-EECF-4475-9208-938B298036CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1D80157-EECF-4475-9208-938B298036CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7927CD05-F893-4562-B545-FCDF217DC61C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7927CD05-F893-4562-B545-FCDF217DC61C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7927CD05-F893-4562-B545-FCDF217DC61C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7927CD05-F893-4562-B545-FCDF217DC61C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

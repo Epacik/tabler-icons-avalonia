@@ -23,8 +23,6 @@
                     Text="{Binding SearchText}"/>
                 <tia:TablerIcon 
                     Icon="IconSearch"
-                    Width="30"
-                    Height="30"
                     HorizontalAlignment="Left"
                     Margin="5"/>
                 
@@ -40,10 +38,17 @@
                             Spacing="10"
                             HorizontalAlignment="Center">
                             <tia:TablerIcon Icon="{Binding Icon}"
-                                            Width="40"
-                                            Height="40"
-                                            Brush="Black"
-                                            StrokeWidth="2"/>
+                                            Width="90"
+                                            Height="90"
+                                            StrokeWidth="2">
+                                <tia:TablerIcon.Brush>
+                                    <RadialGradientBrush Center="50%,50%">
+                                        <GradientStop Color="Red" Offset="0.1"/>
+                                        <GradientStop Color="Green" Offset="0.5"/>
+                                        <GradientStop Color="Blue" Offset="0.9"/>
+                                    </RadialGradientBrush>
+                                </tia:TablerIcon.Brush>
+                            </tia:TablerIcon>
 
                             <TextBlock Text="{Binding Name}"/>
                         </StackPanel>
