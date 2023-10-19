@@ -39,3 +39,5 @@ packages/icons*/icons/*
 /packages/icons-avalonia/src/TablerIcons.Avalonia/Assets/tabler-icons.ttf
 /packages/icons-avalonia/src/TablerIcons.Avalonia/Assets/tabler-icons.woff2
 /packages/icons-avalonia/src/TablerIcons.Avalonia/Assets/tabler-icons.woff
+/packages/icons-avalonia/src/TablerIcons.Avalonia/icons/*.svg
+/.vs/**
