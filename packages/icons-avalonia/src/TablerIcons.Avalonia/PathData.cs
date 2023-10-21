@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SkiaSharp;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -22,17 +23,17 @@ namespace TablerIcons.Avalonia
 
     internal class CircleData : ISvgData
     {
-        public CircleData(float cx, float cy, float r, bool isStroke)
+        public CircleData(float centerX, float centerY, float r, bool isStroke)
         {
-            Cx = cx;
-            Cy = cy;
-            R = r;
+            Radius = r;
             IsStroke = isStroke;
+            Center = new SKPoint(centerX, centerY);
         }
 
-        public float Cx { get; }
-        public float Cy { get; }
-        public float R { get; }
+        public SKPoint Center { get; }
+        public float CenterX => Center.X;
+        public float CenterY => Center.Y;
+        public float Radius { get; }
         public bool IsStroke { get; }
     }
 
@@ -54,5 +55,16 @@ namespace TablerIcons.Avalonia
         public float Height { get; }
         public float Rx { get; }
         public bool IsStroke { get; }
+    }
+
+    internal class DefaultStrokeWidthData : ISvgData
+    {
+        public DefaultStrokeWidthData(float defaultStrokeWidth = 2)
+        {
+            DefaultStrokeWidth = defaultStrokeWidth;
+        }
+        public bool IsStroke => false;
+
+        public float DefaultStrokeWidth { get; }
     }
 }
