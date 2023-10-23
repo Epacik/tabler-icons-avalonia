@@ -97,7 +97,7 @@ namespace TablerIcons.Avalonia
     [global::System.CodeDom.Compiler.GeneratedCode(""TablerIcons.Avalonia.Generator"", ""1.0.0"")]
     internal static class IconsExtension 
     {{
-        public static global::System.Collections.Generic.IEnumerable<{isvgDataType}> GetPathData(this {enumType} icon)
+        public static {isvgDataType}[] GetPathData(this {enumType} icon)
         {{
             switch (icon)
             {{
@@ -164,9 +164,10 @@ namespace TablerIcons.Avalonia
         private string GetPathData(XElement element, string isStroke)
         {
             const string pathDataType = "global::TablerIcons.Avalonia.PathData";
+            var isFill = element.Attribute("fill")?.Value is not null ? "true" : "false";
 
             var data = element.Attribute("d")?.Value ?? "";
-            return $"new {pathDataType}(\"{data}\", {isStroke})";
+            return $"new {pathDataType}(\"{data}\", {isStroke}, {isFill})";
         }
 
         private string GetRectData(XElement element, string isStroke)
@@ -178,8 +179,9 @@ namespace TablerIcons.Avalonia
             var width = element.Attribute("width")?.Value ?? "0";
             var height = element.Attribute("height")?.Value ?? "0";
             var rx = element.Attribute("rx")?.Value ?? "0";
+            var isFill = element.Attribute("fill")?.Value is not null ? "true" : "false";
 
-            return $"new {rectDataType}(0{x}f, 0{y}f, 0{width}f, 0{height}f, 0{rx}f, {isStroke})";
+            return $"new {rectDataType}(0{x}f, 0{y}f, 0{width}f, 0{height}f, 0{rx}f, {isStroke}, {isFill})";
         }
 
         private string GetCircleData(XElement element, string isStroke)
@@ -187,17 +189,18 @@ namespace TablerIcons.Avalonia
             const string circDataType = "global::TablerIcons.Avalonia.CircleData";
 
             var cx = element.Attribute("cx")?.Value ?? "0";
-            var cy = element.Attribute("cx")?.Value ?? "0";
+            var cy = element.Attribute("cy")?.Value ?? "0";
             var r = element.Attribute("r")?.Value ?? "0";
+            var isFill = element.Attribute("fill")?.Value is not null ? "true" : "false";
 
-            return $"new {circDataType}(0{cx}f, 0{cy}f, 0{r}f, {isStroke})";
+            return $"new {circDataType}(0{cx}f, 0{cy}f, 0{r}f, {isStroke}, {isFill})";
         }
 
         private string GetDefaultStrokeWidthData(XElement x)
         {
             const string defDataType = "global::TablerIcons.Avalonia.DefaultStrokeWidthData";
             var strokeWidth = x.Attribute("stroke-width")?.Value ?? "2";
-            return $"new {defDataType}({strokeWidth}f)";
+            return $"new {defDataType}(0{strokeWidth}f)";
         }
     }
 }

@@ -15,10 +15,11 @@ using Avalonia.Platform;
 
 namespace TablerIcons.Avalonia
 {
-    public class TablerIconSource : StyledElement, IImage
+    internal class TablerIconSource : StyledElement, IImage
     {
-        static TablerIconSource()
+        public TablerIconSource()
         {
+            Icon = Icons.Icon123;
         }
 
         private Rect? _lastRect;
@@ -26,26 +27,31 @@ namespace TablerIcons.Avalonia
             _lastRect?.Width ?? 0,
             _lastRect?.Height ?? 0);
 
+
         public void Draw(DrawingContext context, Rect sourceRect, Rect destRect)
         {
             if (_icon is null)
                 return;
 
             var i = _icon.Value;
-            var path = i.GetPathData();
 
             if (destRect.Width < 0 || destRect.Height < 0)
                 return;
+
+            if (_lastRect != destRect)
+            {
+                _lastRect = destRect;
+            }
 
             using (context.PushClip(destRect))
             {
                 context.Custom(
                     new TablerIconDrawOperation(
-                        new Rect(0, 0, destRect.Width, destRect.Height),
-                        path,
+                        destRect,
+                        i,
+                        _data[i],
                         _strokeWidth,
-                        GetShader(destRect),
-                        _brush?.Opacity ?? 1));
+                        GetShader(destRect)));
             }
         }
 
@@ -58,6 +64,8 @@ namespace TablerIcons.Avalonia
                 BindingMode.TwoWay);
 
         private Icons? _icon;
+        //private ISvgData[] _data = Array.Empty<ISvgData>();
+        private static readonly Dictionary<Icons, ISvgData[]> _data = new();
         public Icons? Icon
         {
             get => GetValue(IconProperty);
@@ -65,7 +73,8 @@ namespace TablerIcons.Avalonia
             {
                 SetValue(IconProperty, value);
                 _icon = value;
-                InvalidateImage();
+                if (value is not null && !_data.ContainsKey((Icons)value))
+                    _data[(Icons)value] = ((Icons)value).GetPathData();
             }
         }
 
@@ -95,7 +104,7 @@ namespace TablerIcons.Avalonia
                 false,
                 BindingMode.TwoWay);
 
-        private IBrush _brush;
+        private IBrush _brush = Brushes.Black;
         public IBrush Brush
         {
             get => GetValue(BrushProperty);
@@ -106,62 +115,26 @@ namespace TablerIcons.Avalonia
             }
         }
 
-        protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
-        {
-            base.OnPropertyChanged(change);
-
-            //if (change.Property.Name == nameof(Icon))
-            //{
-            //    if (_source is SvgSource)
-            //    {
-            //        _source.Dispose();
-            //    }
-
-            //    if (Icon is Icons icon)
-            //    {
-            //        (_document, _source) = GetSvgSource(
-            //            icon,
-            //            100f,
-            //            _strokeWidth);
-            //    }
-            //}
-
-
-            if (_icon is null)
-                return;
-
-            switch (change.Property.Name)
-            {
-                case nameof(StrokeWidth):
-                case nameof(Brush):
-                case nameof(Icon):
-                    InvalidateImage();
-                    break;
-            }
-
-            
-        }
+        private static Dictionary<int, SKShader> _shaderCache = new();
         private SKShader GetShader(Rect destRect)
         {
-            switch (_brush)
+            var hash = _brush.GetHashCode();
+
+            if (_shaderCache.TryGetValue(hash, out var value))
+                return value;
+
+            var shader = _brush switch
             {
-                case ISolidColorBrush sb:
-                    return CreateSolidColorShader(sb);
-                case ILinearGradientBrush lgb:
-                    return CreateLinearGradientShader(lgb, destRect);
-                case IRadialGradientBrush rgb:
-                    return CreateRadialGradientShader(rgb, destRect);
-                case IConicGradientBrush cgb:
-                    return CreateConicGradientShader(cgb, destRect);
-                default:
-                    return SKShader.CreateEmpty();
-                    //throw new InvalidOperationException(
-                    //"Used gradient has to be of one of the following types: \n" +
-                    //    "\tAvalonia.Media.ISolidColorBrush,\n" +
-                    //    "\tAvalonia.Media.ILinearGradientBrush,\n" +
-                    //    "\tAvalonia.Media.IRadialGradientBrush,\n" +
-                    //    "\tAvalonia.Media.IConicGradientBrush");
-            }
+                ISolidColorBrush sb => CreateSolidColorShader(sb),
+                ILinearGradientBrush lgb => CreateLinearGradientShader(lgb, destRect),
+                IRadialGradientBrush rgb => CreateRadialGradientShader(rgb, destRect),
+                IConicGradientBrush cgb => CreateConicGradientShader(cgb, destRect),
+                _ => SKShader.CreateEmpty(),
+            };
+
+            //_shaderCache[hash] = shader;
+
+            return shader;
         }
 
         private SKShader CreateConicGradientShader(IConicGradientBrush gradient, Rect destRect)
@@ -170,11 +143,12 @@ namespace TablerIcons.Avalonia
                 gradient.GradientStops,
                 gradient.Opacity);
 
+            var center = GetSKPoint(gradient.Center, destRect);
             var angle = (float)Matrix.ToRadians(gradient.Angle - 90);
             var rotationMatrix = SKMatrix.CreateRotation(
                     angle,
-                    (float)(destRect.Width / 2),
-                    (float)(destRect.Height / 2));
+                    center.X,
+                    center.Y);
 
             var matrix = rotationMatrix;
 
@@ -184,7 +158,8 @@ namespace TablerIcons.Avalonia
                 matrix = matrix.PostConcat(brushMatrix);
             }
 
-            var center = GetSKPoint(gradient.Center, destRect);
+            matrix.PostConcat(Translate(destRect));
+
             var result = SKShader.CreateSweepGradient(
                 center,
                 colors,
@@ -209,16 +184,15 @@ namespace TablerIcons.Avalonia
 
             var center = GetSKPoint(gradient.Center, destRect);
 
-            var matrix = SKMatrix.CreateRotation(
-                    0,
-                    (float)(destRect.Width / 2),
-                    (float)(destRect.Height / 2));
+            var matrix = SKMatrix.Identity;
 
             if (gradient.Transform is ITransform transform)
             {
                 var brushMatrix = transform.Value.ToSKMatrix();
                 matrix = matrix.PostConcat(brushMatrix);
             }
+
+            matrix.PostConcat(Translate(destRect));
 
             var result = SKShader.CreateRadialGradient(
                 center,
@@ -245,6 +219,9 @@ namespace TablerIcons.Avalonia
                 matrix = matrix.PostConcat(brushMatrix);
             }
 
+            
+            matrix.PostConcat(Translate(destRect));
+
             return SKShader.CreateLinearGradient(
                 GetSKPoint(gradient.StartPoint, destRect),
                 GetSKPoint(gradient.EndPoint, destRect),
@@ -252,6 +229,23 @@ namespace TablerIcons.Avalonia
                 colorPos,
                 gradient.SpreadMethod.ToSKShaderTileMode(),
                 matrix);
+        }
+
+        private SKMatrix Translate(Rect destRect)
+        {
+            var offsetX = (destRect.Width > destRect.Height) switch
+            {
+                true => (float)((destRect.Width - destRect.Height) / 2),
+                false => 0f,
+            };
+
+            var offsetY = (destRect.Width < destRect.Height) switch
+            {
+                true => (float)((destRect.Height - destRect.Width) / 2),
+                false => 0f,
+            };
+
+            return SKMatrix.CreateTranslation(offsetX, offsetY);
         }
 
         private SKPoint GetSKPoint(RelativePoint point, Rect destRect)
@@ -284,37 +278,6 @@ namespace TablerIcons.Avalonia
         private SKShader CreateSolidColorShader(ISolidColorBrush sb)
         {
             return SKShader.CreateColor(sb.Color.ToSKColor().WithAlpha((byte)(sb.Opacity * 255)));
-        }
-        private void InvalidateImage()
-        {
-            var lifetime = Application.Current.ApplicationLifetime;
-            if (lifetime is IClassicDesktopStyleApplicationLifetime classic)
-            {
-                foreach (var window in classic.Windows)
-                {
-                    foreach (var visual in (IEnumerable<Visual>)window.GetVisualDescendants())
-                    {
-                        var img = visual as Image;
-
-                        if (img is null || img.Source != this)
-                            continue;
-
-                        img.InvalidateVisual();
-                    }
-                }
-            }
-            else if (lifetime is ISingleViewApplicationLifetime singleView)
-            {
-                foreach (var visual in (IEnumerable<Visual>)singleView.MainView.GetVisualDescendants())
-                {
-                    var img = visual as Image;
-
-                    if (img is null || img.Source != this)
-                        continue;
-
-                    img.InvalidateVisual();
-                }
-            }
         }
 
     }
