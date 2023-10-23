@@ -77,28 +77,6 @@ namespace TablerIcons.Avalonia
             set => SetValue(BrushProperty, value);
         }
 
-        protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
-        {
-            base.OnPropertyChanged(change);
-
-            switch (change.Property.Name)
-            {
-                case nameof(Icon):
-                case nameof(StrokeWidth):
-                case nameof(Brush):
-                case nameof(Width):
-                case nameof(MaxWidth):
-                case nameof(MinWidth):
-                case nameof(Height):
-                case nameof(MaxHeight):
-                case nameof(MinHeight):
-                    var visuals = this.GetVisualChildren();
-                    var img = visuals.FirstOrDefault(x => x is Image);
-                    img?.InvalidateVisual();
-                    break;
-            }
-        }
-
         public override void Render(DrawingContext context)
         {
             base.Render(context);
@@ -110,7 +88,17 @@ namespace TablerIcons.Avalonia
             };
 
             var rect = new Rect(DesiredSize - Margin);
-            source.Draw(context, rect, rect);
+            var size = Math.Min(rect.Width, rect.Height);
+            var centeredRect = rect.CenterRect(new Rect(0, 0, size, size));
+
+            centeredRect = centeredRect
+                .WithX(-centeredRect.X)
+                .WithY(-centeredRect.Y);
+
+
+            //source.Draw(context, rect, rect);
+
+            context.DrawImage(source, rect);
         }
 
     }

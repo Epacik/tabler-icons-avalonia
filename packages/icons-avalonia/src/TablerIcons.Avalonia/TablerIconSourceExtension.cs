@@ -4,7 +4,7 @@ using Avalonia.Media;
 
 namespace TablerIcons.Avalonia
 {
-    public sealed class TablerIconSourceExtension : MarkupExtension
+    internal sealed class TablerIconSourceExtension : MarkupExtension
     {
         public TablerIconSourceExtension() { }
         public TablerIconSourceExtension(Icons icon)

@@ -7,6 +7,7 @@
       <NoWarn>CS1591</NoWarn>
       <IsPackable>True</IsPackable>
       <Nullable>disable</Nullable>
+      <LangVersion>latest</LangVersion>
       <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
   </PropertyGroup>
 
