@@ -4,9 +4,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:TablerIcons.Avalonia.Preview.ViewModels"
              xmlns:tia="using:TablerIcons.Avalonia"
+             xmlns:sys="using:System"
+             xmlns:l="using:TablerIcons.Avalonia.Preview.Views"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="TablerIcons.Avalonia.Preview.Views.MainView"
-             x:DataType="vm:MainViewModel">
+             x:DataType="vm:MainViewModel"
+             x:Name="_self">
   <Design.DataContext>
     <!-- This only sets the DataContext for the previewer in an IDE,
          to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
@@ -16,7 +19,7 @@
     <Grid RowDefinitions="50,*,50">
 
         <Border Margin="10,5">
-            <Grid >
+            <Grid ColumnDefinitions="*,5,140,5,140,5,140">
                 <TextBox
                     FontSize="20"
                     Padding="40,5,5,5"
@@ -24,7 +27,67 @@
                 <tia:TablerIcon 
                     Icon="IconSearch"
                     HorizontalAlignment="Left"
-                    Margin="5"/>
+                    Margin="5"
+                    x:Name="_icon"/>
+
+                <ComboBox 
+                    SelectedItem="{Binding StrokeWidth}"
+                    Grid.Column="2"
+                    SelectedIndex="4"
+                    VerticalAlignment="Stretch"
+                    HorizontalAlignment="Stretch"
+                    Padding="10,15,10,10">
+                    <sys:Single>2.00</sys:Single>
+                    <sys:Single>1.75</sys:Single>
+                    <sys:Single>1.50</sys:Single>
+                    <sys:Single>1.25</sys:Single>
+                    <sys:Single>1.00</sys:Single>
+                    <sys:Single>0.75</sys:Single>
+                    <sys:Single>0.50</sys:Single>
+                </ComboBox>
+                
+                <TextBlock 
+                    Text="Stroke Width"
+                    Grid.Column="2"
+                    VerticalAlignment="Top"
+                    FontSize="12"
+                    Focusable="False"
+                    IsEnabled="False"
+                    Margin="5,2"/>
+                
+                <NumericUpDown 
+                    Grid.Column="4"
+                    Increment="5"
+                    Maximum="200"
+                    Minimum="10"
+                    Padding="10,15,10,5"
+                    Value="{Binding Width}"/>
+
+                <TextBlock
+                    Text="Width"
+                    Grid.Column="4"
+                    VerticalAlignment="Top"
+                    FontSize="12"
+                    Focusable="False"
+                    IsEnabled="False"
+                    Margin="5,2"/>
+
+                <NumericUpDown
+                    Grid.Column="6"
+                    Increment="5"
+                    Maximum="200"
+                    Minimum="10"
+                    Padding="10,15,10,5"
+                    Value="{Binding Height}"/>
+
+                <TextBlock
+                    Text="Height"
+                    Grid.Column="6"
+                    VerticalAlignment="Top"
+                    FontSize="12"
+                    Focusable="False"
+                    IsEnabled="False"
+                    Margin="5,2"/>
                 
             </Grid>
         </Border>
@@ -38,9 +101,9 @@
                             Spacing="10"
                             HorizontalAlignment="Center">
                             <tia:TablerIcon Icon="{Binding Icon}"
-                                            Width="90"
-                                            Height="90"
-                                            StrokeWidth="4">
+                                            Width="{Binding $parent[l:MainView].((vm:MainViewModel)DataContext).Width}"
+                                            Height="{Binding $parent[l:MainView].((vm:MainViewModel)DataContext).Height}"
+                                            StrokeWidth="{Binding $parent[l:MainView].((vm:MainViewModel)DataContext).StrokeWidth}">
                                 <tia:TablerIcon.Brush>
                                     <RadialGradientBrush Center="50%,50%">
                                         <GradientStop Color="Red" Offset="0.1"/>
@@ -50,7 +113,10 @@
                                 </tia:TablerIcon.Brush>
                             </tia:TablerIcon>
 
-                            <TextBlock Text="{Binding Name}"/>
+
+                            <TextBlock 
+                                Text="{Binding Name}" 
+                                HorizontalAlignment="Center" />
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
