@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace TablerIcons.Avalonia.Preview.ViewModels;
 
-public partial class MainViewModel : ViewModelBase
+public partial class MainViewModel : ObservableObject
 {
     public MainViewModel()
     {
@@ -23,8 +23,8 @@ public partial class MainViewModel : ViewModelBase
         _iconsView = new ObservableCollectionView<IconModel>(Icons);
         _iconsView.Filter = (x) 
             => string.IsNullOrWhiteSpace(SearchText) || x.Name.Contains(SearchText, StringComparison.OrdinalIgnoreCase);
-        _iconsView.Limit = 200;
-        _iconsView.Offset = 0;
+        //_iconsView.Limit = 1000;
+        //_iconsView.Offset = 0;
 
         TotalPages = GetTotalPages();
         CurrentPage = 1;
@@ -43,6 +43,15 @@ public partial class MainViewModel : ViewModelBase
 
     [ObservableProperty]
     int _currentPage;
+
+    [ObservableProperty]
+    float _strokeWidth = 2;
+
+    [ObservableProperty]
+    double _width = 90;
+
+    [ObservableProperty]
+    double _height = 90;
     partial void OnCurrentPageChanged(int value)
     {
         IconsView.Offset = value * IconsView.Limit;
