@@ -93,7 +93,9 @@
         </Border>
         
         <ScrollViewer Grid.Row="1">
-            <ListBox ItemsSource="{Binding IconsView}">
+            <ListBox 
+                ItemsSource="{Binding IconsView}"
+                SelectedItem="{Binding SelectedIcon}">
                 <ListBox.ItemTemplate >
                     <DataTemplate>
                         <StackPanel
@@ -129,7 +131,7 @@
             </ListBox>
         </ScrollViewer>
 
-        <StackPanel
+        <!--<StackPanel
             Grid.Row="2"
             Orientation="Horizontal"
             HorizontalAlignment="Center"
@@ -163,6 +165,6 @@
             <Button
                 Content="{ti:TablerIcon IconChevronsRight}"
                 Command="{Binding GoToLastPageCommand}"/>
-        </StackPanel>
+        </StackPanel>-->
     </Grid>
 </UserControl>

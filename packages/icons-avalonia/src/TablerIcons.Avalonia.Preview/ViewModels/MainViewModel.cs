@@ -39,6 +39,9 @@ public partial class MainViewModel : ObservableObject
     ObservableCollectionView<IconModel> _iconsView;
 
     [ObservableProperty]
+    Icons? _selectedIcon;
+
+    [ObservableProperty]
     int _totalPages;
 
     [ObservableProperty]
