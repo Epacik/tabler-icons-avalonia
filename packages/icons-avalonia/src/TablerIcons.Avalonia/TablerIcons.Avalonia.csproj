@@ -49,7 +49,6 @@
   <ItemGroup>
     <None Include="Assets\.gitkeep" />
     <AdditionalFiles Include="icons\**" IconGenerator="true" />
-    <None Include="prebuild.ps1" />
   </ItemGroup>
 
 
