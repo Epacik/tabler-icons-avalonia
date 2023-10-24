@@ -2,7 +2,7 @@
 using System;
 using Avalonia.Media;
 
-namespace TablerIcons.Avalonia
+namespace TablerIcons
 {
     internal sealed class TablerIconSourceExtension : MarkupExtension
     {

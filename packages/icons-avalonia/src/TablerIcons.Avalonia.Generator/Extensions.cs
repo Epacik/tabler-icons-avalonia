@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TablerIcons.Avalonia.Generator
+namespace TablerIcons.Generator
 {
     internal static class DictionaryExtensions
     {

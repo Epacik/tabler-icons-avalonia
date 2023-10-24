@@ -1,6 +1,6 @@
 ﻿using SkiaSharp;
 
-namespace TablerIcons.Avalonia;
+namespace TablerIcons;
 
 internal interface ISvgData
 {

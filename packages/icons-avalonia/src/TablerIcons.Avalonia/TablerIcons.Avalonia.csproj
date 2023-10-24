@@ -9,6 +9,7 @@
       <Nullable>disable</Nullable>
       <LangVersion>latest</LangVersion>
       <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
+      <RootNamespace>TablerIcons</RootNamespace>
   </PropertyGroup>
 
 
@@ -35,14 +36,13 @@
     <ItemGroup>
       <Compile Include="AssemblyAttributes.cs" />
       <Compile Include="Extensions.cs" />
-      <Compile Include="PathData.cs" />
+      <Compile Include="SvgData.cs" />
       <Compile Include="TablerIcon.axaml.cs" />
       <Compile Include="TablerIconDrawOperation.cs" />
       <Compile Include="TablerIconSource.cs" />
       <Compile Include="TablerIconSourceExtension.cs" />
       <Compile Include="TablerIconExtension.cs" />
       <!--<Compile Include="$(IntermediateOutputPath)TablerIcons/TablerIcons.g.cs" />-->
-      <Compile Include="ValueAttribute.cs" />
     </ItemGroup>
 
 

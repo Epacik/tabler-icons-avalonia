@@ -3,7 +3,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:TablerIcons.Avalonia.Preview.ViewModels"
-             xmlns:tia="using:TablerIcons.Avalonia"
+             xmlns:ti="using:TablerIcons"
              xmlns:sys="using:System"
              xmlns:l="using:TablerIcons.Avalonia.Preview.Views"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
@@ -24,7 +24,7 @@
                     FontSize="20"
                     Padding="40,5,5,5"
                     Text="{Binding SearchText}"/>
-                <tia:TablerIcon 
+                <ti:TablerIcon 
                     Icon="IconSearch"
                     HorizontalAlignment="Left"
                     Margin="5"
@@ -100,18 +100,18 @@
                             x:DataType="vm:IconModel"
                             Spacing="10"
                             HorizontalAlignment="Center">
-                            <tia:TablerIcon Icon="{Binding Icon}"
+                            <ti:TablerIcon Icon="{Binding Icon}"
                                             Width="{Binding $parent[l:MainView].((vm:MainViewModel)DataContext).Width}"
                                             Height="{Binding $parent[l:MainView].((vm:MainViewModel)DataContext).Height}"
                                             StrokeWidth="{Binding $parent[l:MainView].((vm:MainViewModel)DataContext).StrokeWidth}">
-                                <tia:TablerIcon.Brush>
+                                <ti:TablerIcon.Brush>
                                     <RadialGradientBrush Center="50%,50%">
                                         <GradientStop Color="Red" Offset="0.1"/>
                                         <GradientStop Color="Green" Offset="0.5"/>
                                         <GradientStop Color="Blue" Offset="0.9"/>
                                     </RadialGradientBrush>
-                                </tia:TablerIcon.Brush>
-                            </tia:TablerIcon>
+                                </ti:TablerIcon.Brush>
+                            </ti:TablerIcon>
 
 
                             <TextBlock 
@@ -135,10 +135,10 @@
             HorizontalAlignment="Center"
             Spacing="10">
             <Button
-                Content="{tia:TablerIcon IconChevronsLeft}"
+                Content="{ti:TablerIcon IconChevronsLeft}"
                 Command="{Binding GoToFirstPageCommand}"/>
             <Button
-                Content="{tia:TablerIcon IconChevronLeft}"
+                Content="{ti:TablerIcon IconChevronLeft}"
                 Command="{Binding GoToPreviousPageCommand}"/>
             
             <NumericUpDown 
@@ -158,10 +158,10 @@
             </TextBlock>
             
             <Button
-                Content="{tia:TablerIcon IconChevronRight}"
+                Content="{ti:TablerIcon IconChevronRight}"
                 Command="{Binding GoToNextPageCommand}"/>
             <Button
-                Content="{tia:TablerIcon IconChevronsRight}"
+                Content="{ti:TablerIcon IconChevronsRight}"
                 Command="{Binding GoToLastPageCommand}"/>
         </StackPanel>
     </Grid>

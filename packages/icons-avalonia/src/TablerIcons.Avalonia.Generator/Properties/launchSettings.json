@@ -2,7 +2,7 @@
   "profiles": {
     "Profil 1": {
       "commandName": "DebugRoslynComponent",
-      "targetProject": "..\\TablerIcons.Avalonia\\TablerIcons.Avalonia.csproj"
+      "targetProject": "..\\TablerIcons\\TablerIcons.csproj"
     }
   }
 }
