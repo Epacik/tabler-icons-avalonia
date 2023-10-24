@@ -13,7 +13,7 @@ using Svg;
 using Avalonia.Skia;
 using Avalonia.Platform;
 
-namespace TablerIcons.Avalonia
+namespace TablerIcons
 {
     internal class TablerIconSource : StyledElement, IImage
     {

@@ -6,7 +6,7 @@ using Avalonia.Skia;
 using SkiaSharp;
 using System;
 
-namespace TablerIcons.Avalonia;
+namespace TablerIcons;
 
 internal class TablerIconDrawOperation : ICustomDrawOperation
 {

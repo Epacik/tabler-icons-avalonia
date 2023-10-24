@@ -12,7 +12,7 @@ using System;
 using System.Linq;
 using SvgImage = Avalonia.Svg.Skia.SvgImage;
 
-namespace TablerIcons.Avalonia
+namespace TablerIcons
 {
     public sealed partial class TablerIcon : Control
     {

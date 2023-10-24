@@ -29,6 +29,6 @@
         <None Include="$(PkgSystem_Text_Json)\lib\netstandard2.0\*.dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
 
 
-        <None Include="TablerIcons.Avalonia.Generator.props" Pack="true" PackagePath="build" Visible="false" />
+        <None Include="TablerIcons.Generator.props" Pack="true" PackagePath="build" Visible="false" />
     </ItemGroup>
 </Project>

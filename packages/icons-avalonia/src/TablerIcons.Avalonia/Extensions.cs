@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace TablerIcons.Avalonia
+namespace TablerIcons
 {
     internal static class Helpers
     {
