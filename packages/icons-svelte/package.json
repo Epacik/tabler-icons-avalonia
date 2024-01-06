@@ -1,6 +1,6 @@
 {
   "name": "@tabler/icons-svelte",
-  "version": "2.39.0",
+  "version": "2.45.0",
   "license": "MIT",
   "author": "codecalm",
   "description": "A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.",
@@ -26,6 +26,14 @@
   "files": [
     "dist"
   ],
+  "exports": {
+    ".": {
+      "types": "./dist/tabler-icons-svelte.d.ts",
+      "svelte": "./dist/svelte/tabler-icons-svelte.js"
+    },
+    "./dist/svelte/Icon.svelte": "./dist/svelte/Icon.svelte",
+    "./dist/svelte/icons/*.svelte": "./dist/svelte/icons/*.svelte"
+  },
   "scripts": {
     "build": "pnpm run clean && pnpm run copy:license && pnpm run build:icons && pnpm run build:bundles && pnpm build:strip",
     "build:icons": "node build.mjs",
@@ -36,7 +44,7 @@
     "test": "pnpm run clean && pnpm run build:icons && jest --env=jsdom"
   },
   "dependencies": {
-    "@tabler/icons": "2.39.0"
+    "@tabler/icons": "2.45.0"
   },
   "devDependencies": {
     "@testing-library/svelte": "^3.0.3",

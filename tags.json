@@ -2694,6 +2694,13 @@
     "version": "1.58",
     "unicode": "f05d"
   }, 
+  "background": {
+    "name": "background",
+    "category": "",
+    "tags": ["background", "backdrop", "setting", "context", "environment", "scene", "ambient", "surroundings", "scape", "contextual", "atmosphere", "icon", "stroke", "outline"],
+    "version": "2.41",
+    "unicode": "fd2c"
+  }, 
   "backhoe": {
     "name": "backhoe",
     "category": "Vehicles",
@@ -4066,6 +4073,27 @@
     "version": "1.0",
     "unicode": "ea3c"
   }, 
+  "border-corner-pill": {
+    "name": "border-corner-pill",
+    "category": "Design",
+    "tags": ["border", "corner", "pill", "icon", "stroke", "outline"],
+    "version": "2.44",
+    "unicode": "fd62"
+  }, 
+  "border-corner-rounded": {
+    "name": "border-corner-rounded",
+    "category": "Design",
+    "tags": ["border", "corner", "rounded", "icon", "stroke", "outline"],
+    "version": "2.44",
+    "unicode": "fd63"
+  }, 
+  "border-corner-square": {
+    "name": "border-corner-square",
+    "category": "Design",
+    "tags": ["border", "corner", "square", "icon", "stroke", "outline"],
+    "version": "2.44",
+    "unicode": "fd64"
+  }, 
   "border-corners": {
     "name": "border-corners",
     "category": "Design",
@@ -4689,6 +4717,13 @@
     "version": "1.32",
     "unicode": "ed69"
   }, 
+  "brand-apple-filled": {
+    "name": "brand-apple-filled",
+    "category": "Filled",
+    "tags": ["brand", "apple", "filled", "icon", "stroke", "outline"],
+    "version": "2.45",
+    "unicode": "fd74"
+  }, 
   "brand-apple-podcast": {
     "name": "brand-apple-podcast",
     "category": "Brand",
@@ -4835,6 +4870,13 @@
     "tags": ["brand", "blogger", "media", "blogging", "internet", "social", "site", "icon", "stroke", "outline"],
     "version": "1.89",
     "unicode": "f35a"
+  }, 
+  "brand-bluesky": {
+    "name": "brand-bluesky",
+    "category": "Brand",
+    "tags": ["brand", "bluesky", "icon", "stroke", "outline"],
+    "version": "2.45",
+    "unicode": "fd75"
   }, 
   "brand-booking": {
     "name": "brand-booking",
@@ -5487,6 +5529,13 @@
     "version": "1.9",
     "unicode": "ec1e"
   }, 
+  "brand-google-filled": {
+    "name": "brand-google-filled",
+    "category": "Filled",
+    "tags": ["brand", "google", "filled", "icon", "stroke", "outline"],
+    "version": "2.40",
+    "unicode": "fd1a"
+  }, 
   "brand-google-fit": {
     "name": "brand-google-fit",
     "category": "Brand",
@@ -5662,6 +5711,13 @@
     "version": "2.7",
     "unicode": "f7b0"
   }, 
+  "brand-kako-talk": {
+    "name": "brand-kako-talk",
+    "category": "Brand",
+    "tags": ["brand", "kako", "talk", "kakao-talk", "messaging", "communication", "chat", "social", "app", "talk", "branding", "kakao", "conversation", "icon", "stroke", "outline"],
+    "version": "2.41",
+    "unicode": "fd2d"
+  }, 
   "brand-kbin": {
     "name": "brand-kbin",
     "category": "Brand",
@@ -5745,6 +5801,13 @@
     "tags": ["brand", "linqpad", "framework", "programmers", "database", "icon", "stroke", "outline"],
     "version": "1.106",
     "unicode": "f562"
+  }, 
+  "brand-livewire": {
+    "name": "brand-livewire",
+    "category": "Brand",
+    "tags": ["brand", "livewire", "icon", "stroke", "outline"],
+    "version": "2.45",
+    "unicode": "fd76"
   }, 
   "brand-loom": {
     "name": "brand-loom",
@@ -6131,6 +6194,13 @@
     "version": "2.5",
     "unicode": "f78f"
   }, 
+  "brand-pnpm": {
+    "name": "brand-pnpm",
+    "category": "Brand",
+    "tags": ["brand", "pnpm", "icon", "stroke", "outline"],
+    "version": "2.45",
+    "unicode": "fd77"
+  }, 
   "brand-pocket": {
     "name": "brand-pocket",
     "category": "Brand",
@@ -6151,6 +6221,13 @@
     "tags": ["brand", "powershell", "microsoft", "command", "interpreter", "software", "opensource", "icon", "stroke", "outline"],
     "version": "1.113",
     "unicode": "f5ed"
+  }, 
+  "brand-printables": {
+    "name": "brand-printables",
+    "category": "Brand",
+    "tags": ["brand", "printables", "icon", "stroke", "outline"],
+    "version": "2.40",
+    "unicode": "fd1b"
   }, 
   "brand-prisma": {
     "name": "brand-prisma",
@@ -6418,6 +6495,13 @@
     "version": "1.32",
     "unicode": "ed6f"
   }, 
+  "brand-stocktwits": {
+    "name": "brand-stocktwits",
+    "category": "Brand",
+    "tags": ["brand", "stocktwits", "icon", "stroke", "outline"],
+    "version": "2.45",
+    "unicode": "fd78"
+  }, 
   "brand-storj": {
     "name": "brand-storj",
     "category": "Brand",
@@ -6571,6 +6655,13 @@
     "tags": ["brand", "tether", "coin", "crypto", "cryptocurrency", "digital", "icon", "stroke", "outline"],
     "version": "1.110",
     "unicode": "f5a3"
+  }, 
+  "brand-thingiverse": {
+    "name": "brand-thingiverse",
+    "category": "Brand",
+    "tags": ["brand", "thingiverse", "icon", "stroke", "outline"],
+    "version": "2.40",
+    "unicode": "fd1c"
   }, 
   "brand-threads": {
     "name": "brand-threads",
@@ -6963,6 +7054,13 @@
     "tags": ["brand", "yandex", "icon", "stroke", "outline"],
     "version": "2.23",
     "unicode": "fae1"
+  }, 
+  "brand-yarn": {
+    "name": "brand-yarn",
+    "category": "Brand",
+    "tags": ["brand", "yarn", "icon", "stroke", "outline"],
+    "version": "2.45",
+    "unicode": "fd79"
   }, 
   "brand-yatse": {
     "name": "brand-yatse",
@@ -7587,6 +7685,13 @@
     "version": "2.10",
     "unicode": "f824"
   }, 
+  "calendar-clock": {
+    "name": "calendar-clock",
+    "category": "",
+    "tags": ["calendar", "clock", "time-calendar", "schedule-clock", "appointment", "date-time", "event-schedule", "timing", "calendar-clock", "agenda", "time-management", "calendar-event", "icon", "stroke", "outline"],
+    "version": "2.41",
+    "unicode": "fd2e"
+  }, 
   "calendar-code": {
     "name": "calendar-code",
     "category": "System",
@@ -7607,6 +7712,13 @@
     "tags": ["calendar", "dollar", "icon", "stroke", "outline"],
     "version": "2.10",
     "unicode": "f827"
+  }, 
+  "calendar-dot": {
+    "name": "calendar-dot",
+    "category": "",
+    "tags": ["calendar", "dot", "icon", "stroke", "outline"],
+    "version": "2.42",
+    "unicode": "fd3e"
   }, 
   "calendar-down": {
     "name": "calendar-down",
@@ -7657,6 +7769,13 @@
     "version": "1.5",
     "unicode": "ebb9"
   }, 
+  "calendar-month": {
+    "name": "calendar-month",
+    "category": "",
+    "tags": ["calendar", "month", "monthly-calendar", "month-view", "date-month", "monthly-schedule", "timeframe", "calendar-grid", "month", "month-planner", "monthly", "date-grid", "icon", "stroke", "outline"],
+    "version": "2.41",
+    "unicode": "fd2f"
+  }, 
   "calendar-off": {
     "name": "calendar-off",
     "category": "System",
@@ -7699,6 +7818,13 @@
     "version": "2.22",
     "unicode": "fad2"
   }, 
+  "calendar-sad": {
+    "name": "calendar-sad",
+    "category": "",
+    "tags": ["calendar", "sad", "icon", "stroke", "outline"],
+    "version": "2.40",
+    "unicode": "fd1d"
+  }, 
   "calendar-search": {
     "name": "calendar-search",
     "category": "System",
@@ -7712,6 +7838,13 @@
     "tags": ["calendar", "share", "icon", "stroke", "outline"],
     "version": "2.10",
     "unicode": "f82f"
+  }, 
+  "calendar-smile": {
+    "name": "calendar-smile",
+    "category": "",
+    "tags": ["calendar", "smile", "icon", "stroke", "outline"],
+    "version": "2.40",
+    "unicode": "fd1e"
   }, 
   "calendar-star": {
     "name": "calendar-star",
@@ -7740,6 +7873,20 @@
     "tags": ["calendar", "up", "icon", "stroke", "outline"],
     "version": "2.10",
     "unicode": "f831"
+  }, 
+  "calendar-user": {
+    "name": "calendar-user",
+    "category": "",
+    "tags": ["calendar", "user", "icon", "stroke", "outline"],
+    "version": "2.40",
+    "unicode": "fd1f"
+  }, 
+  "calendar-week": {
+    "name": "calendar-week",
+    "category": "",
+    "tags": ["calendar", "week", "weekly-calendar", "week-view", "date-week", "weekly-schedule", "timeframe", "calendar-grid", "week", "week-planner", "weekly", "date-grid", "icon", "stroke", "outline"],
+    "version": "2.41",
+    "unicode": "fd30"
   }, 
   "calendar-x": {
     "name": "calendar-x",
@@ -8307,6 +8454,20 @@
     "tags": ["category", "filled", "icon", "stroke", "outline"],
     "version": "2.26",
     "unicode": "fb2e"
+  }, 
+  "category-minus": {
+    "name": "category-minus",
+    "category": "",
+    "tags": ["category", "minus", "icon", "stroke", "outline"],
+    "version": "2.40",
+    "unicode": "fd20"
+  }, 
+  "category-plus": {
+    "name": "category-plus",
+    "category": "",
+    "tags": ["category", "plus", "icon", "stroke", "outline"],
+    "version": "2.40",
+    "unicode": "fd21"
   }, 
   "category": {
     "name": "category",
@@ -9022,6 +9183,13 @@
     "version": "1.91",
     "unicode": "f383"
   }, 
+  "christmas-ball": {
+    "name": "christmas-ball",
+    "category": "",
+    "tags": ["christmas", "ball", "holiday-ball", "festive", "ornament", "decoration", "christmas", "bauble", "celebration", "seasonal", "holiday", "decorative", "icon", "stroke", "outline"],
+    "version": "2.41",
+    "unicode": "fd31"
+  }, 
   "christmas-tree-off": {
     "name": "christmas-tree-off",
     "category": "Nature",
@@ -9386,6 +9554,13 @@
     "version": "2.33",
     "unicode": "fc74"
   }, 
+  "circle-dashed-percentage": {
+    "name": "circle-dashed-percentage",
+    "category": "",
+    "tags": ["circle", "dashed", "percentage", "icon", "stroke", "outline"],
+    "version": "2.45",
+    "unicode": "fd7a"
+  }, 
   "circle-dashed-x": {
     "name": "circle-dashed-x",
     "category": "Numbers",
@@ -9735,6 +9910,13 @@
     "tags": ["circle", "off", "false", "zero", "icon", "stroke", "outline"],
     "version": "1.39",
     "unicode": "ee40"
+  }, 
+  "circle-percentage": {
+    "name": "circle-percentage",
+    "category": "",
+    "tags": ["circle", "percentage", "icon", "stroke", "outline"],
+    "version": "2.45",
+    "unicode": "fd7b"
   }, 
   "circle-plus-2": {
     "name": "circle-plus-2",
@@ -11101,12 +11283,40 @@
     "version": "1.40",
     "unicode": "ef0f"
   }, 
+  "copy-check": {
+    "name": "copy-check",
+    "category": "",
+    "tags": ["copy", "check", "icon", "stroke", "outline"],
+    "version": "2.42",
+    "unicode": "fd3f"
+  }, 
+  "copy-minus": {
+    "name": "copy-minus",
+    "category": "",
+    "tags": ["copy", "minus", "icon", "stroke", "outline"],
+    "version": "2.42",
+    "unicode": "fd40"
+  }, 
   "copy-off": {
     "name": "copy-off",
     "category": "Text",
     "tags": ["copy", "off", "clipboard", "clone", "duplicate", "icon", "stroke", "outline"],
     "version": "1.63",
     "unicode": "f0d8"
+  }, 
+  "copy-plus": {
+    "name": "copy-plus",
+    "category": "",
+    "tags": ["copy", "plus", "icon", "stroke", "outline"],
+    "version": "2.42",
+    "unicode": "fd41"
+  }, 
+  "copy-x": {
+    "name": "copy-x",
+    "category": "",
+    "tags": ["copy", "x", "icon", "stroke", "outline"],
+    "version": "2.42",
+    "unicode": "fd42"
   }, 
   "copy": {
     "name": "copy",
@@ -11367,6 +11577,20 @@
     "version": "1.24",
     "unicode": "ed11"
   }, 
+  "credit-card-pay": {
+    "name": "credit-card-pay",
+    "category": "",
+    "tags": ["credit", "card", "pay", "payment-card", "credit-pay", "card-payment", "transaction", "credit-transaction", "purchase", "buy", "payment", "credit", "card", "icon", "stroke", "outline"],
+    "version": "2.41",
+    "unicode": "fd32"
+  }, 
+  "credit-card-refund": {
+    "name": "credit-card-refund",
+    "category": "",
+    "tags": ["credit", "card", "refund", "refund-card", "credit-refund", "card-refund", "transaction", "credit-transaction", "return", "money-back", "credit", "refund", "card", "icon", "stroke", "outline"],
+    "version": "2.41",
+    "unicode": "fd33"
+  }, 
   "credit-card": {
     "name": "credit-card",
     "category": "E-commerce",
@@ -11380,6 +11604,55 @@
     "tags": ["cricket", "ball", "game", "sport", "icon", "stroke", "outline"],
     "version": "1.61",
     "unicode": "f09a"
+  }, 
+  "crop-1-1": {
+    "name": "crop-1-1",
+    "category": "Design",
+    "tags": ["crop", "1", "1", "square-crop", "aspect-ratio-1-1", "equal-proportion", "image-square", "crop-square", "box-crop", "square-frame", "uniform-crop", "balanced-crop", "equal-crop", "icon", "stroke", "outline"],
+    "version": "2.43",
+    "unicode": "fd50"
+  }, 
+  "crop-16-9": {
+    "name": "crop-16-9",
+    "category": "Design",
+    "tags": ["crop", "16", "9", "wide-crop", "aspect-ratio-16-9", "landscape-crop", "wide-screen", "video-crop", "16-by-9", "wide-format", "cinematic-crop", "panorama", "landscape-aspect", "icon", "stroke", "outline"],
+    "version": "2.43",
+    "unicode": "fd51"
+  }, 
+  "crop-3-2": {
+    "name": "crop-3-2",
+    "category": "Design",
+    "tags": ["crop", "3", "2", "portrait-crop", "aspect-ratio-3-2", "vertical-crop", "portrait-mode", "tall-crop", "3-by-2", "portrait-format", "vertical-aspect", "vertical-frame", "portrait", "icon", "stroke", "outline"],
+    "version": "2.43",
+    "unicode": "fd52"
+  }, 
+  "crop-5-4": {
+    "name": "crop-5-4",
+    "category": "Design",
+    "tags": ["crop", "5", "4", "custom-crop", "aspect-ratio-5-4", "fixed-crop", "image-format", "5-by-4", "customized-crop", "fixed-aspect", "dimensional-crop", "specific-crop", "custom-aspect", "icon", "stroke", "outline"],
+    "version": "2.43",
+    "unicode": "fd53"
+  }, 
+  "crop-7-5": {
+    "name": "crop-7-5",
+    "category": "Design",
+    "tags": ["crop", "7", "5", "custom-crop", "aspect-ratio-7-5", "fixed-crop", "image-format", "7-by-5", "customized-crop", "fixed-aspect", "dimensional-crop", "specific-crop", "custom-aspect", "icon", "stroke", "outline"],
+    "version": "2.43",
+    "unicode": "fd54"
+  }, 
+  "crop-landscape": {
+    "name": "crop-landscape",
+    "category": "Design",
+    "tags": ["crop", "landscape", "landscape-crop", "aspect-ratio-landscape", "wide-crop", "landscape-mode", "horizontal-crop", "landscape-format", "wide-aspect", "horizontal-frame", "landscape", "icon", "stroke", "outline"],
+    "version": "2.43",
+    "unicode": "fd55"
+  }, 
+  "crop-portrait": {
+    "name": "crop-portrait",
+    "category": "Design",
+    "tags": ["crop", "portrait", "portrait-crop", "aspect-ratio-portrait", "vertical-crop", "portrait-mode", "tall-crop", "portrait-format", "vertical-aspect", "vertical-frame", "portrait", "icon", "stroke", "outline"],
+    "version": "2.43",
+    "unicode": "fd56"
   }, 
   "crop": {
     "name": "crop",
@@ -11948,6 +12221,13 @@
     "version": "1.39",
     "unicode": "ee6b"
   }, 
+  "currency-xrp": {
+    "name": "currency-xrp",
+    "category": "",
+    "tags": ["currency", "xrp", "xrp", "cryptocurrency", "digital-currency", "blockchain", "ripple", "crypto", "virtual-currency", "xrp-coin", "financial", "digital-money", "icon", "stroke", "outline"],
+    "version": "2.41",
+    "unicode": "fd34"
+  }, 
   "currency-yen-off": {
     "name": "currency-yen-off",
     "category": "Currencies",
@@ -12213,6 +12493,13 @@
     "tags": ["deselect", "unselect", "clear-selection", "deselection", "unpick", "uncheck", "deactivate", "unmark", "remove-selection", "untag", "unchoose", "icon", "stroke", "outline"],
     "version": "2.11",
     "unicode": "f9f3"
+  }, 
+  "desk": {
+    "name": "desk",
+    "category": "",
+    "tags": ["desk", "workspace", "workstation", "table", "office-desk", "workplace", "furniture", "desk-setup", "desktop", "office-furniture", "working", "icon", "stroke", "outline"],
+    "version": "2.41",
+    "unicode": "fd35"
   }, 
   "details-off": {
     "name": "details-off",
@@ -13915,6 +14202,13 @@
     "version": "1.39",
     "unicode": "ee7b"
   }, 
+  "direction-arrows": {
+    "name": "direction-arrows",
+    "category": "",
+    "tags": ["direction", "arrows", "arrows", "directional", "navigate", "wayfinding", "pointing", "route", "orientation", "arrow-sign", "guidance", "direction", "icon", "stroke", "outline"],
+    "version": "2.41",
+    "unicode": "fd36"
+  }, 
   "direction-horizontal": {
     "name": "direction-horizontal",
     "category": "",
@@ -14418,6 +14712,13 @@
     "tags": ["ear", "off", "sound", "listen", "music", "hear", "loud", "speakers", "icon", "stroke", "outline"],
     "version": "1.39",
     "unicode": "ee84"
+  }, 
+  "ear-scan": {
+    "name": "ear-scan",
+    "category": "",
+    "tags": ["ear", "scan", "ear", "scan", "audiology", "hearing-test", "ear-exam", "medical", "healthcare", "ear-scan", "diagnosis", "hearing-health", "icon", "stroke", "outline"],
+    "version": "2.43",
+    "unicode": "fd57"
   }, 
   "ear": {
     "name": "ear",
@@ -15014,6 +15315,13 @@
     "version": "1.18",
     "unicode": "ecb9"
   }, 
+  "favicon": {
+    "name": "favicon",
+    "category": "Design",
+    "tags": ["favicon", "icon", "stroke", "outline"],
+    "version": "2.44",
+    "unicode": "fd65"
+  }, 
   "feather-off": {
     "name": "feather-off",
     "category": "Nature",
@@ -15294,6 +15602,13 @@
     "version": "1.0",
     "unicode": "ea9f"
   }, 
+  "file-neutral": {
+    "name": "file-neutral",
+    "category": "",
+    "tags": ["file", "neutral", "icon", "stroke", "outline"],
+    "version": "2.40",
+    "unicode": "fd22"
+  }, 
   "file-off": {
     "name": "file-off",
     "category": "Document",
@@ -15357,6 +15672,13 @@
     "version": "1.56",
     "unicode": "f03b"
   }, 
+  "file-sad": {
+    "name": "file-sad",
+    "category": "",
+    "tags": ["file", "sad", "icon", "stroke", "outline"],
+    "version": "2.40",
+    "unicode": "fd23"
+  }, 
   "file-scissors": {
     "name": "file-scissors",
     "category": "Document",
@@ -15391,6 +15713,13 @@
     "tags": ["file", "signal", "wi-fi", "connection", "internet", "online", "connected", "icon", "stroke", "outline"],
     "version": "1.56",
     "unicode": "f03d"
+  }, 
+  "file-smile": {
+    "name": "file-smile",
+    "category": "",
+    "tags": ["file", "smile", "icon", "stroke", "outline"],
+    "version": "2.40",
+    "unicode": "fd24"
   }, 
   "file-spreadsheet": {
     "name": "file-spreadsheet",
@@ -16442,6 +16771,13 @@
     "version": "2.10",
     "unicode": "f917"
   }, 
+  "folder-root": {
+    "name": "folder-root",
+    "category": "",
+    "tags": ["folder", "root", "icon", "stroke", "outline"],
+    "version": "2.42",
+    "unicode": "fd43"
+  }, 
   "folder-search": {
     "name": "folder-search",
     "category": "Document",
@@ -17267,6 +17603,13 @@
     "tags": ["guitar", "pick", "music", "instrument", "melody", "accesories", "icon", "stroke", "outline"],
     "version": "1.98",
     "unicode": "f4c6"
+  }, 
+  "gymnastics": {
+    "name": "gymnastics",
+    "category": "",
+    "tags": ["gymnastics", "icon", "stroke", "outline"],
+    "version": "2.42",
+    "unicode": "fd44"
   }, 
   "h-1": {
     "name": "h-1",
@@ -18605,6 +18948,20 @@
     "version": "2.37",
     "unicode": "fcb7"
   }, 
+  "hospital-circle": {
+    "name": "hospital-circle",
+    "category": "",
+    "tags": ["hospital", "circle", "medical-center", "healthcare", "clinic", "emergency", "hospital-round", "health", "care", "medical-facility", "circle-hospital", "health-center", "icon", "stroke", "outline"],
+    "version": "2.43",
+    "unicode": "fd58"
+  }, 
+  "hospital": {
+    "name": "hospital",
+    "category": "",
+    "tags": ["hospital", "medical-facility", "healthcare", "clinic", "emergency", "hospital-building", "health", "care", "medical-center", "hospital-structure", "health-center", "icon", "stroke", "outline"],
+    "version": "2.43",
+    "unicode": "fd59"
+  }, 
   "hotel-service": {
     "name": "hotel-service",
     "category": "",
@@ -19592,6 +19949,13 @@
     "version": "2.30",
     "unicode": "fc37"
   }, 
+  "layout-bottombar-inactive": {
+    "name": "layout-bottombar-inactive",
+    "category": "",
+    "tags": ["layout", "bottombar", "inactive", "icon", "stroke", "outline"],
+    "version": "2.42",
+    "unicode": "fd45"
+  }, 
   "layout-bottombar": {
     "name": "layout-bottombar",
     "category": "Design",
@@ -19711,6 +20075,13 @@
     "version": "2.30",
     "unicode": "fc3a"
   }, 
+  "layout-navbar-inactive": {
+    "name": "layout-navbar-inactive",
+    "category": "",
+    "tags": ["layout", "navbar", "inactive", "icon", "stroke", "outline"],
+    "version": "2.42",
+    "unicode": "fd46"
+  }, 
   "layout-navbar": {
     "name": "layout-navbar",
     "category": "Design",
@@ -19731,6 +20102,13 @@
     "tags": ["layout", "rows", "grid", "masonry", "collage", "icon", "stroke", "outline"],
     "version": "1.0",
     "unicode": "ead8"
+  }, 
+  "layout-sidebar-inactive": {
+    "name": "layout-sidebar-inactive",
+    "category": "",
+    "tags": ["layout", "sidebar", "inactive", "icon", "stroke", "outline"],
+    "version": "2.42",
+    "unicode": "fd47"
   }, 
   "layout-sidebar-left-collapse-filled": {
     "name": "layout-sidebar-left-collapse-filled",
@@ -19787,6 +20165,13 @@
     "tags": ["layout", "sidebar", "right", "expand", "grid", "aside", "column", "columns", "menu", "navigation", "icon", "stroke", "outline"],
     "version": "1.53",
     "unicode": "f007"
+  }, 
+  "layout-sidebar-right-inactive": {
+    "name": "layout-sidebar-right-inactive",
+    "category": "",
+    "tags": ["layout", "sidebar", "right", "inactive", "icon", "stroke", "outline"],
+    "version": "2.42",
+    "unicode": "fd48"
   }, 
   "layout-sidebar-right": {
     "name": "layout-sidebar-right",
@@ -20249,6 +20634,34 @@
     "tags": ["letter", "z", "alphabet", "symbol", "text", "code", "icon", "stroke", "outline"],
     "version": "1.12",
     "unicode": "ec69"
+  }, 
+  "library-minus": {
+    "name": "library-minus",
+    "category": "",
+    "tags": ["library", "minus", "icon", "stroke", "outline"],
+    "version": "2.42",
+    "unicode": "fd49"
+  }, 
+  "library-photo": {
+    "name": "library-photo",
+    "category": "",
+    "tags": ["library", "photo", "icon", "stroke", "outline"],
+    "version": "2.42",
+    "unicode": "fd4a"
+  }, 
+  "library-plus": {
+    "name": "library-plus",
+    "category": "",
+    "tags": ["library", "plus", "icon", "stroke", "outline"],
+    "version": "2.42",
+    "unicode": "fd4b"
+  }, 
+  "library": {
+    "name": "library",
+    "category": "",
+    "tags": ["library", "icon", "stroke", "outline"],
+    "version": "2.42",
+    "unicode": "fd4c"
   }, 
   "license-off": {
     "name": "license-off",
@@ -22420,6 +22833,13 @@
     "version": "2.10",
     "unicode": "f98b"
   }, 
+  "message-reply": {
+    "name": "message-reply",
+    "category": "",
+    "tags": ["message", "reply", "icon", "stroke", "outline"],
+    "version": "2.42",
+    "unicode": "fd4d"
+  }, 
   "message-report": {
     "name": "message-report",
     "category": "Communication",
@@ -22496,6 +22916,27 @@
     "tags": ["meteor", "space", "comet", "astronomy", "galaxy", "cosmos", "icon", "stroke", "outline"],
     "version": "1.70",
     "unicode": "f1fd"
+  }, 
+  "meter-cube": {
+    "name": "meter-cube",
+    "category": "",
+    "tags": ["meter", "cube", "icon", "stroke", "outline"],
+    "version": "2.45",
+    "unicode": "fd7c"
+  }, 
+  "meter-square": {
+    "name": "meter-square",
+    "category": "",
+    "tags": ["meter", "square", "icon", "stroke", "outline"],
+    "version": "2.45",
+    "unicode": "fd7d"
+  }, 
+  "metronome": {
+    "name": "metronome",
+    "category": "",
+    "tags": ["metronome", "icon", "stroke", "outline"],
+    "version": "2.40",
+    "unicode": "fd25"
   }, 
   "michelin-bib-gourmand": {
     "name": "michelin-bib-gourmand",
@@ -22812,6 +23253,13 @@
     "version": "1.8",
     "unicode": "ec03"
   }, 
+  "mood-look-down": {
+    "name": "mood-look-down",
+    "category": "",
+    "tags": ["mood", "look", "down", "downward-look", "gaze-down", "low-mood", "sad", "disheartened", "dejected", "downcast", "downward-glance", "melancholy", "blue", "icon", "stroke", "outline"],
+    "version": "2.41",
+    "unicode": "fd37"
+  }, 
   "mood-look-left": {
     "name": "mood-look-left",
     "category": "Mood",
@@ -22825,6 +23273,13 @@
     "tags": ["mood", "look", "right", "east", "face", "direction", "icon", "stroke", "outline"],
     "version": "1.81",
     "unicode": "f2c6"
+  }, 
+  "mood-look-up": {
+    "name": "mood-look-up",
+    "category": "",
+    "tags": ["mood", "look", "up", "upward-look", "gaze-up", "optimistic", "positive-mood", "cheerful", "uplifting", "hopeful", "skyward-glance", "inspired", "joyful", "icon", "stroke", "outline"],
+    "version": "2.41",
+    "unicode": "fd38"
   }, 
   "mood-minus": {
     "name": "mood-minus",
@@ -22881,6 +23336,13 @@
     "tags": ["mood", "plus", "emotion", "feeling", "happy", "face", "add", "new", "icon", "stroke", "outline"],
     "version": "2.7",
     "unicode": "f7b9"
+  }, 
+  "mood-puzzled": {
+    "name": "mood-puzzled",
+    "category": "",
+    "tags": ["mood", "puzzled", "confused-mood", "perplexed", "bewildered", "puzzled", "uncertain", "ambiguous", "confounding", "mystery", "riddle", "enigma", "icon", "stroke", "outline"],
+    "version": "2.41",
+    "unicode": "fd39"
   }, 
   "mood-sad-2": {
     "name": "mood-sad-2",
@@ -24352,6 +24814,13 @@
     "version": "1.6",
     "unicode": "ebd8"
   }, 
+  "parking-circle": {
+    "name": "parking-circle",
+    "category": "",
+    "tags": ["parking", "circle", "parking", "parking-lot", "circle-parking", "vehicle-parking", "parking-zone", "parking-area", "parking-circle", "car-park", "round-parking", "circle-lot", "icon", "stroke", "outline"],
+    "version": "2.43",
+    "unicode": "fd5a"
+  }, 
   "parking-off": {
     "name": "parking-off",
     "category": "Map",
@@ -24414,6 +24883,13 @@
     "tags": ["paw", "animal", "dog", "cat", "foot", "pets", "icon", "stroke", "outline"],
     "version": "1.52",
     "unicode": "eff9"
+  }, 
+  "paywall": {
+    "name": "paywall",
+    "category": "",
+    "tags": ["paywall", "icon", "stroke", "outline"],
+    "version": "2.45",
+    "unicode": "fd7e"
   }, 
   "pdf": {
     "name": "pdf",
@@ -25171,6 +25647,20 @@
     "version": "1.43",
     "unicode": "ef52"
   }, 
+  "pilcrow-left": {
+    "name": "pilcrow-left",
+    "category": "",
+    "tags": ["pilcrow", "left", "icon", "stroke", "outline"],
+    "version": "2.45",
+    "unicode": "fd7f"
+  }, 
+  "pilcrow-right": {
+    "name": "pilcrow-right",
+    "category": "",
+    "tags": ["pilcrow", "right", "icon", "stroke", "outline"],
+    "version": "2.45",
+    "unicode": "fd80"
+  }, 
   "pilcrow": {
     "name": "pilcrow",
     "category": "Text",
@@ -25199,12 +25689,26 @@
     "version": "1.44",
     "unicode": "ef66"
   }, 
+  "pin-end": {
+    "name": "pin-end",
+    "category": "",
+    "tags": ["pin", "end", "pin", "location-pin", "map-pin", "marker", "place-pin", "destination-pin", "end-pin", "point", "position-pin", "mark-end", "icon", "stroke", "outline"],
+    "version": "2.43",
+    "unicode": "fd5b"
+  }, 
   "pin-filled": {
     "name": "pin-filled",
     "category": "Filled",
     "tags": ["pin", "filled", "thing", "localization", "maps", "clip", "place", "location", "icon", "stroke", "outline"],
     "version": "2.0",
     "unicode": "f68d"
+  }, 
+  "pin-invoke": {
+    "name": "pin-invoke",
+    "category": "",
+    "tags": ["pin", "invoke", "pin", "location-pin", "map-pin", "marker", "place-pin", "invoke-pin", "trigger-pin", "point", "position-pin", "invoke-mark", "icon", "stroke", "outline"],
+    "version": "2.43",
+    "unicode": "fd5c"
   }, 
   "pin": {
     "name": "pin",
@@ -26053,6 +26557,13 @@
     "version": "1.39",
     "unicode": "eec4"
   }, 
+  "protocol": {
+    "name": "protocol",
+    "category": "",
+    "tags": ["protocol", "icon", "stroke", "outline"],
+    "version": "2.45",
+    "unicode": "fd81"
+  }, 
   "pumpkin-scary": {
     "name": "pumpkin-scary",
     "category": "",
@@ -26305,12 +26816,40 @@
     "version": "1.38",
     "unicode": "edfa"
   }, 
+  "receipt-bitcoin": {
+    "name": "receipt-bitcoin",
+    "category": "E-commerce",
+    "tags": ["receipt", "bitcoin", "icon", "stroke", "outline"],
+    "version": "2.44",
+    "unicode": "fd66"
+  }, 
+  "receipt-dollar": {
+    "name": "receipt-dollar",
+    "category": "E-commerce",
+    "tags": ["receipt", "dollar", "icon", "stroke", "outline"],
+    "version": "2.44",
+    "unicode": "fd67"
+  }, 
+  "receipt-euro": {
+    "name": "receipt-euro",
+    "category": "E-commerce",
+    "tags": ["receipt", "euro", "icon", "stroke", "outline"],
+    "version": "2.44",
+    "unicode": "fd68"
+  }, 
   "receipt-off": {
     "name": "receipt-off",
     "category": "Document",
     "tags": ["receipt", "off", "bill", "restaurant", "shop", "price", "pay", "money", "total", "tax", "icon", "stroke", "outline"],
     "version": "1.38",
     "unicode": "edfb"
+  }, 
+  "receipt-pound": {
+    "name": "receipt-pound",
+    "category": "E-commerce",
+    "tags": ["receipt", "pound", "icon", "stroke", "outline"],
+    "version": "2.44",
+    "unicode": "fd69"
   }, 
   "receipt-refund": {
     "name": "receipt-refund",
@@ -26319,12 +26858,33 @@
     "version": "1.38",
     "unicode": "edfc"
   }, 
+  "receipt-rupee": {
+    "name": "receipt-rupee",
+    "category": "",
+    "tags": ["receipt", "rupee", "icon", "stroke", "outline"],
+    "version": "2.45",
+    "unicode": "fd82"
+  }, 
   "receipt-tax": {
     "name": "receipt-tax",
     "category": "Document",
     "tags": ["receipt", "tax", "income", "percentage", "money", "finance", "charge", "obligation", "taxpayer", "vat", "icon", "stroke", "outline"],
     "version": "1.5",
     "unicode": "edbd"
+  }, 
+  "receipt-yen": {
+    "name": "receipt-yen",
+    "category": "E-commerce",
+    "tags": ["receipt", "yen", "icon", "stroke", "outline"],
+    "version": "2.44",
+    "unicode": "fd6a"
+  }, 
+  "receipt-yuan": {
+    "name": "receipt-yuan",
+    "category": "E-commerce",
+    "tags": ["receipt", "yuan", "icon", "stroke", "outline"],
+    "version": "2.44",
+    "unicode": "fd6b"
   }, 
   "receipt": {
     "name": "receipt",
@@ -26979,14 +27539,14 @@
   }, 
   "route-alt-left": {
     "name": "route-alt-left",
-    "category": "Maps",
+    "category": "Map",
     "tags": ["route", "alt", "left", "alternate-left", "alternate-route", "left-path", "alternate-way", "left-trail", "alt-left-road", "leftward-route", "shift-left", "change-left", "left-road", "icon", "stroke", "outline"],
     "version": "2.36",
     "unicode": "fca9"
   }, 
   "route-alt-right": {
     "name": "route-alt-right",
-    "category": "Maps",
+    "category": "Map",
     "tags": ["route", "alt", "right", "alternate-right", "alternate-route", "right-path", "alternate-way", "right-trail", "alt-right-road", "rightward-route", "shift-right", "change-right", "right-road", "icon", "stroke", "outline"],
     "version": "2.36",
     "unicode": "fcaa"
@@ -27007,28 +27567,28 @@
   }, 
   "route-square-2": {
     "name": "route-square-2",
-    "category": "Maps",
+    "category": "Map",
     "tags": ["route", "square", "2", "square-route", "route-square", "path", "journey", "direction", "trail", "navigate", "travel", "way", "square-direction", "icon", "stroke", "outline"],
     "version": "2.36",
     "unicode": "fcab"
   }, 
   "route-square": {
     "name": "route-square",
-    "category": "Maps",
+    "category": "Map",
     "tags": ["route", "square", "path", "journey", "direction", "trail", "navigate", "travel", "way", "square", "geometric-route", "square-path", "icon", "stroke", "outline"],
     "version": "2.36",
     "unicode": "fcac"
   }, 
   "route-x-2": {
     "name": "route-x-2",
-    "category": "Maps",
+    "category": "Map",
     "tags": ["route", "x", "2", "x-route", "route-x", "path", "journey", "direction", "trail", "navigate", "travel", "way", "crossing", "icon", "stroke", "outline"],
     "version": "2.36",
     "unicode": "fcad"
   }, 
   "route-x": {
     "name": "route-x",
-    "category": "Maps",
+    "category": "Map",
     "tags": ["route", "x", "path", "journey", "direction", "trail", "navigate", "travel", "way", "cross", "x-cross", "cross-path", "icon", "stroke", "outline"],
     "version": "2.36",
     "unicode": "fcae"
@@ -27214,6 +27774,13 @@
     "tags": ["salt", "food", "cooking", "kitchen", "spice", "salty", "icon", "stroke", "outline"],
     "version": "1.40",
     "unicode": "ef16"
+  }, 
+  "sandbox": {
+    "name": "sandbox",
+    "category": "System",
+    "tags": ["sandbox", "icon", "stroke", "outline"],
+    "version": "2.44",
+    "unicode": "fd6c"
   }, 
   "satellite-off": {
     "name": "satellite-off",
@@ -27411,6 +27978,13 @@
     "version": "1.82",
     "unicode": "f2da"
   }, 
+  "scuba-diving": {
+    "name": "scuba-diving",
+    "category": "",
+    "tags": ["scuba", "diving", "icon", "stroke", "outline"],
+    "version": "2.42",
+    "unicode": "fd4e"
+  }, 
   "scuba-mask-off": {
     "name": "scuba-mask-off",
     "category": "Sport",
@@ -27494,6 +28068,13 @@
     "tags": ["selector", "arrows", "select", "dropdown", "chevron", "down", "south", "bottom", "direction", "input", "icon", "stroke", "outline"],
     "version": "1.0",
     "unicode": "eb1d"
+  }, 
+  "send-2": {
+    "name": "send-2",
+    "category": "",
+    "tags": ["send", "2", "transmit", "dispatch", "forward", "deliver", "message", "communication", "send-out", "send-away", "transfer", "send-off", "icon", "stroke", "outline"],
+    "version": "2.43",
+    "unicode": "fd5d"
   }, 
   "send-off": {
     "name": "send-off",
@@ -28321,6 +28902,13 @@
     "version": "1.1",
     "unicode": "eb25"
   }, 
+  "shovel-pitchforks": {
+    "name": "shovel-pitchforks",
+    "category": "",
+    "tags": ["shovel", "pitchforks", "shovel", "pitchfork", "digging-tool", "gardening", "agriculture", "farm-tool", "manual-labor", "soil", "gardening-implement", "dig", "icon", "stroke", "outline"],
+    "version": "2.41",
+    "unicode": "fd3a"
+  }, 
   "shovel": {
     "name": "shovel",
     "category": "",
@@ -28489,6 +29077,20 @@
     "version": "2.21",
     "unicode": "faca"
   }, 
+  "skew-x": {
+    "name": "skew-x",
+    "category": "",
+    "tags": ["skew", "x", "skew-horizontal", "tilt-x", "slant-x", "distort-horizontal", "angled", "slanted", "tilted", "diagonal", "oblique", "slope-x", "icon", "stroke", "outline"],
+    "version": "2.41",
+    "unicode": "fd3b"
+  }, 
+  "skew-y": {
+    "name": "skew-y",
+    "category": "",
+    "tags": ["skew", "y", "skew-vertical", "tilt-y", "slant-y", "distort-vertical", "angled", "slanted", "tilted", "diagonal", "oblique", "slope-y", "icon", "stroke", "outline"],
+    "version": "2.41",
+    "unicode": "fd3c"
+  }, 
   "skull": {
     "name": "skull",
     "category": "Health",
@@ -28558,6 +29160,13 @@
     "tags": ["smoking", "cigarette", "public place", "icon", "stroke", "outline"],
     "version": "1.18",
     "unicode": "ecc4"
+  }, 
+  "snowboarding": {
+    "name": "snowboarding",
+    "category": "",
+    "tags": ["snowboarding", "icon", "stroke", "outline"],
+    "version": "2.42",
+    "unicode": "fd4f"
   }, 
   "snowflake-off": {
     "name": "snowflake-off",
@@ -29623,6 +30232,13 @@
     "version": "1.39",
     "unicode": "eeef"
   }, 
+  "square-percentage": {
+    "name": "square-percentage",
+    "category": "",
+    "tags": ["square", "percentage", "icon", "stroke", "outline"],
+    "version": "2.45",
+    "unicode": "fd83"
+  }, 
   "square-plus-2": {
     "name": "square-plus-2",
     "category": "Shapes",
@@ -30218,6 +30834,13 @@
     "version": "1.111",
     "unicode": "f5d1"
   }, 
+  "square-rounded-percentage": {
+    "name": "square-rounded-percentage",
+    "category": "",
+    "tags": ["square", "rounded", "percentage", "icon", "stroke", "outline"],
+    "version": "2.45",
+    "unicode": "fd84"
+  }, 
   "square-rounded-plus-2": {
     "name": "square-rounded-plus-2",
     "category": "Shapes",
@@ -30322,6 +30945,41 @@
     "tags": ["stack", "3", "pile", "elements", "layout", "wrap", "icon", "stroke", "outline"],
     "version": "1.47",
     "unicode": "ef9d"
+  }, 
+  "stack-back": {
+    "name": "stack-back",
+    "category": "",
+    "tags": ["stack", "back", "icon", "stroke", "outline"],
+    "version": "2.40",
+    "unicode": "fd26"
+  }, 
+  "stack-backward": {
+    "name": "stack-backward",
+    "category": "",
+    "tags": ["stack", "backward", "icon", "stroke", "outline"],
+    "version": "2.40",
+    "unicode": "fd27"
+  }, 
+  "stack-forward": {
+    "name": "stack-forward",
+    "category": "",
+    "tags": ["stack", "forward", "icon", "stroke", "outline"],
+    "version": "2.40",
+    "unicode": "fd28"
+  }, 
+  "stack-front": {
+    "name": "stack-front",
+    "category": "",
+    "tags": ["stack", "front", "icon", "stroke", "outline"],
+    "version": "2.40",
+    "unicode": "fd29"
+  }, 
+  "stack-middle": {
+    "name": "stack-middle",
+    "category": "",
+    "tags": ["stack", "middle", "icon", "stroke", "outline"],
+    "version": "2.40",
+    "unicode": "fd2a"
   }, 
   "stack-pop": {
     "name": "stack-pop",
@@ -30483,6 +31141,13 @@
     "tags": ["stethoscope", "doctor", "medical", "physician", "test", "examination", "health", "illness", "sickness", "scrutiny", "test", "hospital", "icon", "stroke", "outline"],
     "version": "1.33",
     "unicode": "edbe"
+  }, 
+  "sticker-2": {
+    "name": "sticker-2",
+    "category": "",
+    "tags": ["sticker", "2", "label-2", "adhesive", "decorative-label", "tag-2", "sticky-note", "decal", "post-it", "sticker-label", "paper-sticker", "2nd-sticker", "icon", "stroke", "outline"],
+    "version": "2.41",
+    "unicode": "fd3d"
   }, 
   "sticker": {
     "name": "sticker",
@@ -30666,6 +31331,34 @@
     "version": "1.14",
     "unicode": "ec92"
   }, 
+  "swipe-down": {
+    "name": "swipe-down",
+    "category": "Arrows",
+    "tags": ["swipe", "down", "gesture", "swipe", "downward-swipe", "scroll-down", "slide-down", "touch-gesture", "screen-swipe", "gesture-control", "interaction", "user-swipe", "icon", "stroke", "outline"],
+    "version": "2.43",
+    "unicode": "fd5e"
+  }, 
+  "swipe-left": {
+    "name": "swipe-left",
+    "category": "Arrows",
+    "tags": ["swipe", "left", "gesture", "swipe", "leftward-swipe", "scroll-left", "slide-left", "touch-gesture", "screen-swipe", "gesture-control", "interaction", "user-swipe", "icon", "stroke", "outline"],
+    "version": "2.43",
+    "unicode": "fd5f"
+  }, 
+  "swipe-right": {
+    "name": "swipe-right",
+    "category": "Arrows",
+    "tags": ["swipe", "right", "gesture", "swipe", "rightward-swipe", "scroll-right", "slide-right", "touch-gesture", "screen-swipe", "gesture-control", "interaction", "user-swipe", "icon", "stroke", "outline"],
+    "version": "2.43",
+    "unicode": "fd60"
+  }, 
+  "swipe-up": {
+    "name": "swipe-up",
+    "category": "Arrows",
+    "tags": ["swipe", "up", "gesture", "swipe", "upward-swipe", "scroll-up", "slide-up", "touch-gesture", "screen-swipe", "gesture-control", "interaction", "user-swipe", "icon", "stroke", "outline"],
+    "version": "2.43",
+    "unicode": "fd61"
+  }, 
   "swipe": {
     "name": "swipe",
     "category": "",
@@ -30739,14 +31432,14 @@
   "table-column": {
     "name": "table-column",
     "category": "Database",
-    "tags": ["table", "column", "icon", "stroke", "outline"],
+    "tags": ["table", "column", "table", "column", "data-table", "spreadsheet", "table-structure", "columnar", "information", "grid", "table-columnar", "dataset", "icon", "stroke", "outline"],
     "version": "2.24",
     "unicode": "faff"
   }, 
   "table-down": {
     "name": "table-down",
     "category": "Database",
-    "tags": ["table", "down", "icon", "stroke", "outline"],
+    "tags": ["table", "down", "table", "down", "arrow-down", "table-arrow", "descending", "sort-down", "data-table", "directional", "arrange-down", "table-order", "icon", "stroke", "outline"],
     "version": "2.13",
     "unicode": "fa1c"
   }, 
@@ -30767,7 +31460,7 @@
   "table-heart": {
     "name": "table-heart",
     "category": "Database",
-    "tags": ["table", "heart", "icon", "stroke", "outline"],
+    "tags": ["table", "heart", "table", "heart", "like", "favorite", "love", "data-table", "table-icon", "heart-symbol", "table-like", "table-favorite", "icon", "stroke", "outline"],
     "version": "2.13",
     "unicode": "fa1d"
   }, 
@@ -30781,7 +31474,7 @@
   "table-minus": {
     "name": "table-minus",
     "category": "Database",
-    "tags": ["table", "minus", "icon", "stroke", "outline"],
+    "tags": ["table", "minus", "table", "minus", "remove", "subtract", "delete", "data-table", "table-operation", "table-remove", "subtract-from-table", "exclude", "icon", "stroke", "outline"],
     "version": "2.13",
     "unicode": "fa1e"
   }, 
@@ -30802,21 +31495,21 @@
   "table-plus": {
     "name": "table-plus",
     "category": "Database",
-    "tags": ["table", "plus", "icon", "stroke", "outline"],
+    "tags": ["table", "plus", "table", "plus", "add", "insert", "include", "data-table", "table-operation", "table-add", "add-to-table", "include-in-table", "icon", "stroke", "outline"],
     "version": "2.13",
     "unicode": "fa1f"
   }, 
   "table-row": {
     "name": "table-row",
     "category": "Database",
-    "tags": ["table", "row", "icon", "stroke", "outline"],
+    "tags": ["table", "row", "table", "row", "data-table", "spreadsheet", "table-structure", "row-wise", "information", "grid", "table-row-wise", "dataset", "icon", "stroke", "outline"],
     "version": "2.24",
     "unicode": "fb00"
   }, 
   "table-share": {
     "name": "table-share",
     "category": "Database",
-    "tags": ["table", "share", "icon", "stroke", "outline"],
+    "tags": ["table", "share", "table", "share", "share-table", "data-sharing", "collaboration", "data-table", "table-collaboration", "table-cooperation", "share-data", "spreadsheet", "icon", "stroke", "outline"],
     "version": "2.13",
     "unicode": "fa20"
   }, 
@@ -30844,7 +31537,7 @@
   "tag-starred": {
     "name": "tag-starred",
     "category": "E-commerce",
-    "tags": ["tag", "starred", "icon", "stroke", "outline"],
+    "tags": ["tag", "starred", "tag", "starred", "star", "favorite", "label", "tagging", "tagged-star", "marked", "tag-star", "highlighted", "icon", "stroke", "outline"],
     "version": "2.35",
     "unicode": "fc99"
   }, 
@@ -31099,6 +31792,13 @@
     "tags": ["text", "direction", "rtl", "left", "right", "bidi", "icon", "stroke", "outline"],
     "version": "1.39",
     "unicode": "eefd"
+  }, 
+  "text-grammar": {
+    "name": "text-grammar",
+    "category": "",
+    "tags": ["text", "grammar", "icon", "stroke", "outline"],
+    "version": "2.44",
+    "unicode": "fd6d"
   }, 
   "text-increase": {
     "name": "text-increase",
@@ -31464,6 +32164,13 @@
     "version": "1.39",
     "unicode": "eeff"
   }, 
+  "tools-kitchen-3": {
+    "name": "tools-kitchen-3",
+    "category": "",
+    "tags": ["tools", "kitchen", "3", "icon", "stroke", "outline"],
+    "version": "2.40",
+    "unicode": "fd2b"
+  }, 
   "tools-kitchen-off": {
     "name": "tools-kitchen-off",
     "category": "Map",
@@ -31680,6 +32387,55 @@
     "tags": ["train", "railway", "rails", "tgv", "journey", "travel", "network", "route", "passenger", "icon", "stroke", "outline"],
     "version": "1.34",
     "unicode": "ed96"
+  }, 
+  "transaction-bitcoin": {
+    "name": "transaction-bitcoin",
+    "category": "",
+    "tags": ["transaction", "bitcoin", "icon", "stroke", "outline"],
+    "version": "2.44",
+    "unicode": "fd6e"
+  }, 
+  "transaction-dollar": {
+    "name": "transaction-dollar",
+    "category": "E-commerce",
+    "tags": ["transaction", "dollar", "icon", "stroke", "outline"],
+    "version": "2.44",
+    "unicode": "fd6f"
+  }, 
+  "transaction-euro": {
+    "name": "transaction-euro",
+    "category": "E-commerce",
+    "tags": ["transaction", "euro", "icon", "stroke", "outline"],
+    "version": "2.44",
+    "unicode": "fd70"
+  }, 
+  "transaction-pound": {
+    "name": "transaction-pound",
+    "category": "E-commerce",
+    "tags": ["transaction", "pound", "icon", "stroke", "outline"],
+    "version": "2.44",
+    "unicode": "fd71"
+  }, 
+  "transaction-rupee": {
+    "name": "transaction-rupee",
+    "category": "",
+    "tags": ["transaction", "rupee", "icon", "stroke", "outline"],
+    "version": "2.45",
+    "unicode": "fd85"
+  }, 
+  "transaction-yen": {
+    "name": "transaction-yen",
+    "category": "E-commerce",
+    "tags": ["transaction", "yen", "icon", "stroke", "outline"],
+    "version": "2.44",
+    "unicode": "fd72"
+  }, 
+  "transaction-yuan": {
+    "name": "transaction-yuan",
+    "category": "E-commerce",
+    "tags": ["transaction", "yuan", "icon", "stroke", "outline"],
+    "version": "2.44",
+    "unicode": "fd73"
   }, 
   "transfer-in": {
     "name": "transfer-in",
