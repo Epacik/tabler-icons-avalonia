@@ -28,7 +28,6 @@ namespace TablerIcons
         public TablerIcon()
         {
             InitializeComponent();
-            
         }
 
         public static readonly StyledProperty<Icons?> IconProperty =
