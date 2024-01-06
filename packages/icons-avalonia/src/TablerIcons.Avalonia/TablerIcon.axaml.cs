@@ -1,16 +1,8 @@
 using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Controls.Primitives;
 using Avalonia.Data;
-using Avalonia.Markup.Xaml;
 using Avalonia.Media;
-using Avalonia.Platform;
-using Avalonia.Svg.Skia;
-using Avalonia.VisualTree;
-using Svg;
 using System;
-using System.Linq;
-using SvgImage = Avalonia.Svg.Skia.SvgImage;
 
 namespace TablerIcons
 {

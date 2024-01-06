@@ -2,16 +2,9 @@
 using Avalonia;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using Avalonia.Data;
-using Avalonia.Controls.ApplicationLifetimes;
-using Avalonia.VisualTree;
-using Avalonia.Controls;
 using SkiaSharp;
-using Avalonia.Svg.Skia;
-using Svg;
 using Avalonia.Skia;
-using Avalonia.Platform;
 
 namespace TablerIcons
 {
