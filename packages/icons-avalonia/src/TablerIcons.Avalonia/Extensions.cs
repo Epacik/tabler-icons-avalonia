@@ -1,5 +1,4 @@
 ﻿using Avalonia;
-using Svg;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -26,16 +25,6 @@ namespace TablerIcons
         public static System.Drawing.Color ToSystemDrawingColor(this global::Avalonia.Media.Color color)
         {
             return System.Drawing.Color.FromArgb(color.A, color.R, color.G, color.B);
-        }
-
-        public static (SvgUnit X, SvgUnit Y) ToSvgXY(this RelativePoint point)
-        {
-
-            var unit = point.Unit == RelativeUnit.Absolute ? SvgUnitType.Point : SvgUnitType.Percentage;
-            var x = new SvgUnit(unit, (float)point.Point.X);
-            var y = new SvgUnit(unit, (float)point.Point.Y);
-
-            return (x, y);
         }
     }
 }

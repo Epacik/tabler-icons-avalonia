@@ -14,9 +14,7 @@
 
 
   <ItemGroup>
-    <PackageReference Include="Avalonia.Controls.Skia" Version="11.0.0.3" />
-    <PackageReference Include="Avalonia.Skia" Version="11.0.4" />
-    <PackageReference Include="Avalonia.Svg.Skia" Version="11.0.0.1" />
+    <PackageReference Include="Avalonia.Skia" Version="11.0.6" />
   </ItemGroup>
     
     <ItemGroup>
