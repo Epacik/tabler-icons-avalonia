@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
       <OutputType>Library</OutputType>
-      <TargetFrameworks>netstandard2.0;net6.0;net7.0</TargetFrameworks>
+      <TargetFrameworks>net48;net6.0;net7.0;net8.0</TargetFrameworks>
       <EnableDefaultCompileItems>False</EnableDefaultCompileItems>
       <EnableDefaultItems>False</EnableDefaultItems>
       <NoWarn>CS1591</NoWarn>
@@ -10,6 +10,22 @@
       <LangVersion>latest</LangVersion>
       <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
       <RootNamespace>TablerIcons</RootNamespace>
+      <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+      <Title>Tabler Icons Avalonia Components</Title>
+      <PackageProjectUrl>https://github.com/Epacik/tabler-icons-avalonia</PackageProjectUrl>
+      <PackageTags>avalonia;tablericons;tabler icons;tabler-icons;tabler;icons;icon;iconset;icon set;iconpack;icon pack</PackageTags>
+      <FileVersion>2.45.0</FileVersion>
+      <AssemblyVersion>2.45.0</AssemblyVersion>
+      <Version>2.45.0</Version>
+      <Description>A set of over 4900 free MIT-licensed high-quality icons for you to use in your Avalonia projects. 
+Built upon https://tabler-icons.io/
+</Description>
+      <Authors>Epat, Tabler Icons Contributors</Authors>
+      <PackageReleaseNotes>Packages version 2.45.0 of https://tabler-icons.io/</PackageReleaseNotes>
+      <PackageReadmeFile>README.md</PackageReadmeFile>
+      <RepositoryUrl>https://github.com/Epacik/tabler-icons-avalonia</RepositoryUrl>
+      <IncludeSymbols>True</IncludeSymbols>
+      <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
 
@@ -45,6 +61,14 @@
 
 
   <ItemGroup>
+    <None Include="..\..\..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
     <None Include="Assets\.gitkeep" />
     <AdditionalFiles Include="icons\**" IconGenerator="true" />
   </ItemGroup>
