@@ -1,4 +1,4 @@
-﻿using Avalonia.Media;
+using Avalonia.Media;
 using Avalonia;
 using System;
 using System.Collections.Generic;
@@ -12,7 +12,7 @@ namespace TablerIcons
     {
         public TablerIconSource()
         {
-            Icon = Icons.Icon123;
+            Icon = default(Icons);
         }
 
         private Rect? _lastRect;
