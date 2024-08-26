@@ -27,7 +27,6 @@
       <RepositoryUrl>https://github.com/Epacik/tabler-icons-avalonia</RepositoryUrl>
       <IncludeSymbols>True</IncludeSymbols>
       <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
   </PropertyGroup>
 
 
