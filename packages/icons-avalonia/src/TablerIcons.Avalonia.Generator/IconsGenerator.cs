@@ -1,4 +1,4 @@
-﻿using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using System;
@@ -135,7 +135,7 @@ namespace TablerIcons
             var mainFill = c.Attribute("fill")?.Value;
             var mainStroke = c.Attribute("stroke")?.Value;
 
-            if (mainFill is null || mainStroke is null)
+            if (mainFill is null || (mainStroke is null && !filled))
                 return null;
 
             var svgPaths = c.Descendants()
