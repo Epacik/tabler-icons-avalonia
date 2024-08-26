@@ -14,15 +14,15 @@
       <Title>Tabler Icons Avalonia Components</Title>
       <PackageProjectUrl>https://github.com/Epacik/tabler-icons-avalonia</PackageProjectUrl>
       <PackageTags>avalonia;tablericons;tabler icons;tabler-icons;tabler;icons;icon;iconset;icon set;iconpack;icon pack</PackageTags>
-      <FileVersion>3.12.0</FileVersion>
-      <AssemblyVersion>3.12.0</AssemblyVersion>
-      <Version>3.12.0</Version>
+      <FileVersion>3.13.0</FileVersion>
+      <AssemblyVersion>3.13.0</AssemblyVersion>
+      <Version>3.13.0</Version>
       <Description>
-        A set of over 5467 free MIT-licensed high-quality icons for you to use in your Avalonia projects.
+        A set of over 5485 free MIT-licensed high-quality icons for you to use in your Avalonia projects.
         Built upon https://tabler-icons.io/
       </Description>
       <Authors>Epat, Tabler Icons Contributors</Authors>
-      <PackageReleaseNotes>Packages version 3.12.0 of https://tabler-icons.io/</PackageReleaseNotes>
+      <PackageReleaseNotes>Packages version 3.13.0 of https://tabler-icons.io/</PackageReleaseNotes>
       <PackageReadmeFile>README.md</PackageReadmeFile>
       <RepositoryUrl>https://github.com/Epacik/tabler-icons-avalonia</RepositoryUrl>
       <IncludeSymbols>True</IncludeSymbols>
