@@ -1,11 +1,11 @@
 # Tabler Icons PDF
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/packages/og-package-pdf.png" alt="Tabler Icons" width="838">
+  <img src="https://raw.githubusercontent.com/tabler/tabler-icons/main/.github/packages/og-package-pdf.png" alt="Tabler Icons" width="838">
 </p>
 
 <p align="center">
-    A set of <!--icons-count-->4926<!--/icons-count--> free MIT-licensed high-quality SVG icons for you to use in your web projects. Each icon is designed on a 24x24 grid and a 2px stroke.
+    A set of <!--icons-count-->5467<!--/icons-count--> free MIT-licensed high-quality SVG icons for you to use in your web projects. Each icon is designed on a 24x24 grid and a 2px stroke.
 <p>
 
 <p align="center">

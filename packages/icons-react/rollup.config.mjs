@@ -1,67 +1,37 @@
 import fs from 'fs'
-import { getRollupPlugins } from '../../.build/build-icons.mjs'
+import { getRollupConfig } from '../../.build/rollup-plugins.mjs'
+import dts from "rollup-plugin-dts";
 
 const pkg = JSON.parse(fs.readFileSync('package.json', 'utf-8'))
 
-const packageName = '@tabler/icons-react';
 const outputFileName = 'tabler-icons-react';
-const outputDir = 'dist';
-const inputs = ['./src/tabler-icons-react.js'];
+const inputs = ['./src/tabler-icons-react.ts'];
 const bundles = [
   {
-    format: 'umd',
-    inputs,
-    outputDir,
-    minify: true,
-  },
-  {
-    format: 'umd',
-    inputs,
-    outputDir,
-  },
-  {
     format: 'cjs',
+    extension: 'cjs',
     inputs,
-    outputDir,
-  },
-  {
-    format: 'es',
-    inputs,
-    outputDir,
   },
   {
     format: 'esm',
     inputs,
-    outputDir,
     preserveModules: true,
+    extension: 'mjs',
   },
 ];
 
-const configs = bundles
-    .map(({ inputs, outputDir, format, minify, preserveModules }) =>
-        inputs.map(input => ({
-          input,
-          plugins: getRollupPlugins(pkg, minify),
-          external: ['react', 'prop-types'],
-          output: {
-            name: packageName,
-            ...(preserveModules
-                ? {
-                  dir: `${outputDir}/${format}`,
-                }
-                : {
-                  file: `${outputDir}/${format}/${outputFileName}${minify ? '.min' : ''}.js`,
-                }),
-            format,
-            sourcemap: true,
-            preserveModules,
-            globals: {
-              react: 'react',
-              'prop-types': 'PropTypes'
-            },
-          },
-        })),
-    )
-    .flat();
+export default [
+  {
+    input: inputs[0],
+    output: [{
+      file: `dist/esm/${outputFileName}.d.ts`, format: 'esm'
+    }, {
+      file: `dist/cjs/${outputFileName}.d.cts`, format: 'cjs'
+    }],
+    plugins: [dts()],
+  },
 
-export default configs;
+  ...getRollupConfig(pkg, outputFileName, bundles, {
+    react: 'react'
+  })
+];

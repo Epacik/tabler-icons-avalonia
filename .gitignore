@@ -20,7 +20,6 @@ yarn.lock
 dist/
 _import.csv
 _import.tsv
-random-icons.svg
 
 .yarn
 .yarnrc.yml
@@ -28,6 +27,7 @@ random-icons.svg
 packages/icons*/icons/*
 packages/icons*/src/icons/*
 packages/icons*/src/icons.js
+packages/icons*/src/icons.ts
 packages/icons*/LICENSE
 packages/icons*/stats/*
 packages/icons*/icons/*
@@ -42,3 +42,6 @@ packages/icons*/icons/*
 /packages/icons-avalonia/src/TablerIcons.Avalonia/Assets/tabler-icons.woff
 /packages/icons-avalonia/src/TablerIcons.Avalonia/icons/*.svg
 /.vs/**
+
+!/**/.gitkeep
+*.tgz
