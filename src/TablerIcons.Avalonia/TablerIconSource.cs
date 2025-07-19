@@ -5,10 +5,11 @@ using System.Collections.Generic;
 using Avalonia.Data;
 using SkiaSharp;
 using Avalonia.Skia;
+using Avalonia.Input;
 
 namespace TablerIcons
 {
-    internal class TablerIconSource : StyledElement, IImage
+    internal class TablerIconSource : InputElement, IImage
     {
         public TablerIconSource()
         {
@@ -23,7 +24,7 @@ namespace TablerIcons
 
         public void Draw(DrawingContext context, Rect sourceRect, Rect destRect)
         {
-            if (_icon is null)
+            if (_icon is null || !IsEffectivelyVisible)
                 return;
 
             var i = _icon.Value;

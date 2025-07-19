@@ -91,46 +91,45 @@
                 
             </Grid>
         </Border>
-        
-        <ScrollViewer Grid.Row="1">
-            <ListBox 
-                ItemsSource="{Binding IconsView}"
-                SelectedItem="{Binding SelectedIcon}">
-                <ListBox.ItemTemplate >
-                    <DataTemplate>
-                        <StackPanel
-                            x:DataType="vm:IconModel"
-                            Spacing="10"
-                            HorizontalAlignment="Center">
-                            <ti:TablerIcon Icon="{Binding Icon}"
-                                            Width="{Binding $parent[l:MainView].((vm:MainViewModel)DataContext).Width}"
-                                            Height="{Binding $parent[l:MainView].((vm:MainViewModel)DataContext).Height}"
-                                            StrokeWidth="{Binding $parent[l:MainView].((vm:MainViewModel)DataContext).StrokeWidth}">
-                                <ti:TablerIcon.Brush>
-                                    <RadialGradientBrush Center="50%,50%">
-                                        <GradientStop Color="Red" Offset="0.1"/>
-                                        <GradientStop Color="Green" Offset="0.5"/>
-                                        <GradientStop Color="Blue" Offset="0.9"/>
-                                    </RadialGradientBrush>
-                                </ti:TablerIcon.Brush>
-                            </ti:TablerIcon>
+
+      <ListBox
+        Grid.Row="1"
+        ItemsSource="{Binding IconsView}"
+        SelectedItem="{Binding SelectedIcon}"
+        ScrollViewer.VerticalScrollBarVisibility="Visible">
+        <ListBox.ItemTemplate >
+          <DataTemplate>
+            <StackPanel
+                x:DataType="vm:IconModel"
+                Spacing="10"
+                HorizontalAlignment="Center">
+              <ti:TablerIcon Icon="{Binding Icon}"
+                              Width="{Binding $parent[l:MainView].((vm:MainViewModel)DataContext).Width}"
+                              Height="{Binding $parent[l:MainView].((vm:MainViewModel)DataContext).Height}"
+                              StrokeWidth="{Binding $parent[l:MainView].((vm:MainViewModel)DataContext).StrokeWidth}">
+                <ti:TablerIcon.Brush>
+                  <RadialGradientBrush Center="50%,50%">
+                    <GradientStop Color="Red" Offset="0.1"/>
+                    <GradientStop Color="Green" Offset="0.5"/>
+                    <GradientStop Color="Blue" Offset="0.9"/>
+                  </RadialGradientBrush>
+                </ti:TablerIcon.Brush>
+              </ti:TablerIcon>
 
 
-                            <TextBlock 
-                                Text="{Binding Name}" 
-                                HorizontalAlignment="Center" />
-                        </StackPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
+              <TextBlock
+                  Text="{Binding Name}"
+                  HorizontalAlignment="Center" />
+            </StackPanel>
+          </DataTemplate>
+        </ListBox.ItemTemplate>
 
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel  />
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-            </ListBox>
-        </ScrollViewer>
-
+        <ItemsControl.ItemsPanel>
+          <ItemsPanelTemplate>
+            <WrapPanel />
+          </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+      </ListBox>
         <!--<StackPanel
             Grid.Row="2"
             Orientation="Horizontal"

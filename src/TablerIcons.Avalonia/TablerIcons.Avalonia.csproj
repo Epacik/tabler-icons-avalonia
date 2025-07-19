@@ -1,7 +1,7 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
       <OutputType>Library</OutputType>
-      <TargetFrameworks>net48;net6.0;net7.0;net8.0</TargetFrameworks>
+      <TargetFrameworks>net48;net8.0;net9.0</TargetFrameworks>
       <EnableDefaultCompileItems>False</EnableDefaultCompileItems>
       <EnableDefaultItems>False</EnableDefaultItems>
       <NoWarn>CS1591</NoWarn>
@@ -14,15 +14,15 @@
       <Title>Tabler Icons Avalonia Components</Title>
       <PackageProjectUrl>https://github.com/Epacik/tabler-icons-avalonia</PackageProjectUrl>
       <PackageTags>avalonia;tablericons;tabler icons;tabler-icons;tabler;icons;icon;iconset;icon set;iconpack;icon pack</PackageTags>
-      <FileVersion>3.26.0</FileVersion>
-      <AssemblyVersion>3.26.0</AssemblyVersion>
-      <Version>3.26.0</Version>
+      <Version>3.34.0</Version>
+      <FileVersion>$(Version)</FileVersion>
+      <AssemblyVersion>$(Version)</AssemblyVersion>
       <Description>
-        A set of over 5485 free MIT-licensed high-quality icons for you to use in your Avalonia projects.
+        A set of over 5944 free MIT-licensed high-quality icons for you to use in your Avalonia projects.
         Built upon https://tabler-icons.io/
       </Description>
       <Authors>Epat, Tabler Icons Contributors</Authors>
-      <PackageReleaseNotes>Packages version 3.26.0 of https://tabler-icons.io/</PackageReleaseNotes>
+      <PackageReleaseNotes>Packages version $(Version)of https://tabler-icons.io/</PackageReleaseNotes>
       <PackageReadmeFile>README.md</PackageReadmeFile>
       <RepositoryUrl>https://github.com/Epacik/tabler-icons-avalonia</RepositoryUrl>
       <IncludeSymbols>True</IncludeSymbols>
@@ -31,7 +31,7 @@
 
 
   <ItemGroup>
-    <PackageReference Include="Avalonia.Skia" Version="11.0.6" />
+    <PackageReference Include="Avalonia.Skia" Version="11.3.2" />
   </ItemGroup>
     
     <ItemGroup>
@@ -83,8 +83,8 @@
     <Folder Include="icons\" />
   </ItemGroup>
   <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-    <Copy SourceFiles="@(FilledIconsSourceFiles)" DestinationFiles="@(FilledIconsSourceFiles->'$(ProjectDir)icons/%(Filename)-filled.svg')"/>
-    <Copy SourceFiles="@(OutlinedIconsSourceFiles)" DestinationFiles="@(OutlinedIconsSourceFiles->'$(ProjectDir)icons/%(Filename).svg')"/>
+    <Copy SourceFiles="@(FilledIconsSourceFiles)" DestinationFiles="@(FilledIconsSourceFiles->'$(ProjectDir)icons/%(Filename)-filled.svg')" />
+    <Copy SourceFiles="@(OutlinedIconsSourceFiles)" DestinationFiles="@(OutlinedIconsSourceFiles->'$(ProjectDir)icons/%(Filename).svg')" />
   </Target>
     <!--<Target Name="PreBuild" BeforeTargets="PreBuildEvent">
       <Exec Command="$(ProjectDir)copyIcons" />
