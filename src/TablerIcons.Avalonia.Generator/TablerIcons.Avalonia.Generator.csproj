@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+        <IsRoslynComponent>true</IsRoslynComponent>
+        <LangVersion>latest</LangVersion>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <!-- Generates a package at build -->
+        <IncludeBuildOutput>false</IncludeBuildOutput>
+        <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+        <OutlinedIconsPath>$(MSBuildProjectDirectory)/../../modules/tabler-icons/icons/outline/</OutlinedIconsPath>
+        <FilledIconsPath>$(MSBuildProjectDirectory)/../../modules/tabler-icons/icons/filled/</FilledIconsPath>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.4">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.6.0" />
+        <PackageReference Include="Microsoft.Net.Compilers.Toolset" Version="4.7.0">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="System.Text.Json" Version="7.0.3" PrivateAssets="all" GeneratePathProperty="true" />
+        
+        <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+
+        <None Include="$(PkgSystem_Text_Json)\lib\netstandard2.0\*.dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+
+
+        <None Include="TablerIcons.Generator.props" Pack="true" PackagePath="build" Visible="false" />
+    </ItemGroup>
+
+  <ItemGroup>
+    <OutlinedIconsSourceFiles Include="$(ProjectDir)/../../modules/tabler-icons/icons/outline/*.svg"/>
+    <FilledIconsSourceFiles Include="$(ProjectDir)/../../modules/tabler-icons/icons/filled/*.svg"/>
+  </ItemGroup>
+
+    
+
+</Project>

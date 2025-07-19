@@ -1,0 +1,92 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+      <OutputType>Library</OutputType>
+      <TargetFrameworks>net48;net6.0;net7.0;net8.0</TargetFrameworks>
+      <EnableDefaultCompileItems>False</EnableDefaultCompileItems>
+      <EnableDefaultItems>False</EnableDefaultItems>
+      <NoWarn>CS1591</NoWarn>
+      <IsPackable>True</IsPackable>
+      <Nullable>disable</Nullable>
+      <LangVersion>latest</LangVersion>
+      <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
+      <RootNamespace>TablerIcons</RootNamespace>
+      <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+      <Title>Tabler Icons Avalonia Components</Title>
+      <PackageProjectUrl>https://github.com/Epacik/tabler-icons-avalonia</PackageProjectUrl>
+      <PackageTags>avalonia;tablericons;tabler icons;tabler-icons;tabler;icons;icon;iconset;icon set;iconpack;icon pack</PackageTags>
+      <FileVersion>3.26.0</FileVersion>
+      <AssemblyVersion>3.26.0</AssemblyVersion>
+      <Version>3.26.0</Version>
+      <Description>
+        A set of over 5485 free MIT-licensed high-quality icons for you to use in your Avalonia projects.
+        Built upon https://tabler-icons.io/
+      </Description>
+      <Authors>Epat, Tabler Icons Contributors</Authors>
+      <PackageReleaseNotes>Packages version 3.26.0 of https://tabler-icons.io/</PackageReleaseNotes>
+      <PackageReadmeFile>README.md</PackageReadmeFile>
+      <RepositoryUrl>https://github.com/Epacik/tabler-icons-avalonia</RepositoryUrl>
+      <IncludeSymbols>True</IncludeSymbols>
+      <PackageLicenseFile>LICENSE</PackageLicenseFile>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia.Skia" Version="11.0.6" />
+  </ItemGroup>
+    
+    <ItemGroup>
+    <AvaloniaResource Include="Assets\**" />
+  </ItemGroup>
+    
+    <ItemGroup>
+      <AvaloniaResource Remove="Assets\.gitkeep" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <AvaloniaXaml Include="TablerIcon.axaml">
+        <SubType>Designer</SubType>
+      </AvaloniaXaml>
+    </ItemGroup>
+    
+    <ItemGroup>
+      <Compile Include="AssemblyAttributes.cs" />
+      <Compile Include="Extensions.cs" />
+      <Compile Include="SvgData.cs" />
+      <Compile Include="TablerIcon.axaml.cs" />
+      <Compile Include="TablerIconDrawOperation.cs" />
+      <Compile Include="TablerIconSource.cs" />
+      <Compile Include="TablerIconSourceExtension.cs" />
+      <Compile Include="TablerIconExtension.cs" />
+    </ItemGroup>
+
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="Assets\.gitkeep" />
+    <AdditionalFiles Include="icons\**" IconGenerator="true" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\TablerIcons.Avalonia.Generator\TablerIcons.Avalonia.Generator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Folder Include="icons\" />
+  </ItemGroup>
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Copy SourceFiles="@(FilledIconsSourceFiles)" DestinationFiles="@(FilledIconsSourceFiles->'$(ProjectDir)icons/%(Filename)-filled.svg')"/>
+    <Copy SourceFiles="@(OutlinedIconsSourceFiles)" DestinationFiles="@(OutlinedIconsSourceFiles->'$(ProjectDir)icons/%(Filename).svg')"/>
+  </Target>
+    <!--<Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+      <Exec Command="$(ProjectDir)copyIcons" />
+    </Target>-->
+</Project>
