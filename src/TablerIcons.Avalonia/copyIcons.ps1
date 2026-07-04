@@ -1,5 +1,5 @@
 $iconsDir = "$PSScriptRoot/icons";
-$sourceDir = "$PSScriptRoot/../../../../icons"
+$sourceDir = "$PSScriptRoot/../../modules/tabler-icons/icons"
 
 Write-Host "Copying icons"
 

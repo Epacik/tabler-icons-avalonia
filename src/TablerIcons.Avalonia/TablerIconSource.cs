@@ -2,6 +2,7 @@ using Avalonia.Media;
 using Avalonia;
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using Avalonia.Data;
 using SkiaSharp;
 using Avalonia.Skia;
@@ -59,7 +60,7 @@ namespace TablerIcons
 
         private Icons? _icon;
         //private ISvgData[] _data = Array.Empty<ISvgData>();
-        private static readonly Dictionary<Icons, ISvgData[]> _data = new();
+        private static readonly Dictionary<Icons, ImmutableArray<ISvgData>> _data = new();
         public Icons? Icon
         {
             get => GetValue(IconProperty);
@@ -190,7 +191,7 @@ namespace TablerIcons
 
             var result = SKShader.CreateRadialGradient(
                 center,
-                (float)(gradient.Radius * min),
+                (float)((gradient.RadiusY.Scalar + gradient.RadiusX.Scalar) / 2 * min),
                 colors,
                 colorPos,
                 gradient.SpreadMethod.ToSKShaderTileMode(),

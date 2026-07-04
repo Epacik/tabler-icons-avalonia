@@ -12,109 +12,201 @@ using System.Text.Json.Serialization;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Xml.Linq;
+using TablerIcons.Generator;
+using static System.Net.Mime.MediaTypeNames;
 
-namespace TablerIcons.Generator
+namespace TablerIcons.Avalonia.Generator
 {
-    [Generator]
-    internal class IconsGenerator : ISourceGenerator
+    [Generator(LanguageNames.CSharp)]
+  internal class IconsGenerator : IIncrementalGenerator
+  {
+    const string _iSvgDataType = "global::TablerIcons.ISvgData";
+
+    const string _enumType = "global::TablerIcons.Icons";
+
+    public void Initialize(IncrementalGeneratorInitializationContext context)
     {
+      IncrementalValuesProvider<AdditionalText> textFiles = context.AdditionalTextsProvider.Where(GetIsIcon);
+      var allTexts = textFiles.Collect();
+
+      context.RegisterSourceOutput(allTexts, (ctx, files) =>
+      {
+        
+
+        ctx.AddSource("TablerIcons.Avalonia.Icons.Enum.g.cs", $$"""
+          namespace TablerIcons;
+
+          [global::System.CodeDom.Compiler.GeneratedCode("TablerIcons.Avalonia.Generator", "1.0.0")]
+          public enum Icons
+          {
+          {{
+            files
+              .Select(x => "    " + GetPascalName(Path.GetFileNameWithoutExtension(x.Path)))
+              .JoinStrings(",\n")
+          }}
+          }
+          """);
+
+        ctx.AddSource("TablerIcons.Avalonia.Icons.IconsExtension.g.cs", $$"""
+          namespace TablerIcons;
+
+          [global::System.CodeDom.Compiler.GeneratedCode("TablerIcons.Avalonia.Generator", "1.0.0")]
+          internal static partial class IconsExtension
+          {
+              public static global::System.Collections.Immutable.ImmutableArray<{{_iSvgDataType}}> GetPathData(this {{_enumType}} icon) => icon switch
+              {
+              {{
+                files
+                  .Select(x => GetPascalName(Path.GetFileNameWithoutExtension(x.Path)))
+                  .Select(x => $"        {_enumType}.{x} => global::TablerIcons.IconsExtension.{x}")
+                  .JoinStrings(",\n")
+              }},
+                  _ => [],
+              };
+          }
+
+          """);
+      });
+      context.RegisterSourceOutput(textFiles, (spc, file) =>
+      {
+        var content = file.GetText()?.ToString();
+        var name = Path.GetFileNameWithoutExtension(file.Path)!;
+        if (content is null || name is null)
+          return;
+
+        var pascalName = GetPascalName(name);
+
+        var filled = name.EndsWith("-filled");
+
+        var fn = GetSvgPaths(
+            name,
+            content,
+            filled);
+
+        if (fn is null)
+          return;
+
+        var f = fn.Value;
+
+        var pathData = string.Join(", ", f.data);
+
+        spc.AddSource($"TablerIcons.Avalonia.Icons.{pascalName}.g.cs", $$"""
+        namespace TablerIcons;
+        
+        internal static partial class IconsExtension
+        {
+            public static global::System.Collections.Immutable.ImmutableArray<{{_iSvgDataType}}> {{pascalName}} => [ {{pathData}} ];
+        }
+        
+        """);
+      });
+    }
+
+    private string GetPascalName(string name)
+    {
+      return "Icon" + Regex.Replace(
+            name.ToLower(),
+            "(^|[_-])(.)",
+            x => x.Groups[2].Value.ToUpper());
+    }
+
         public void Initialize(GeneratorInitializationContext context)
         {
         }
 
-        public void Execute(GeneratorExecutionContext context)
-        {
-            var source = GetSource(context);
-            if (source is null)
-                return;
+        //public void Execute(GeneratorExecutionContext context)
+        //{
+        //    var source = GetSource(context);
+        //    if (source is null)
+        //        return;
             
-            context.AddSource("TablerIcons.Avalonia.Icons.g.cs", source);
+        //    context.AddSource("TablerIcons.Avalonia.Icons.g.cs", source);
         
-        }
+        //}
 
         private int _fileCount = 0;
         private string? _source;
         
-        public string? GetSource(GeneratorExecutionContext context)
-        {
-            if (_source is not null && _fileCount == context.AdditionalFiles.Length)
-                return _source;
+//        public string? GetSource(GeneratorExecutionContext context)
+//        {
+//            if (_source is not null && _fileCount == context.AdditionalFiles.Length)
+//                return _source;
 
-            var enumLines = new List<string>();
-            var switchLines = new StringBuilder();
+//            var enumLines = new List<string>();
+//            var switchLines = new StringBuilder();
 
-            const string isvgDataType = "global::TablerIcons.ISvgData";
+//            const string isvgDataType = "global::TablerIcons.ISvgData";
 
-            const string enumType = "global::TablerIcons.Icons";
+//            const string enumType = "global::TablerIcons.Icons";
 
-            foreach (var file in context.AdditionalFiles)
-            {
-                var isIcon = GetIsIcon(file);
-                if (!isIcon)
-                    continue;
+//            foreach (var file in context.AdditionalFiles)
+//            {
+//                var isIcon = GetIsIcon(file);
+//                if (!isIcon)
+//                    continue;
 
-                var content = file.GetText()?.ToString();
-                if (content == null)
-                    continue;
+//                var content = file.GetText()?.ToString();
+//                if (content == null)
+//                    continue;
 
-                var name = Path.GetFileNameWithoutExtension(file.Path);
-                var filled = name.EndsWith("-filled");
+//                var name = Path.GetFileNameWithoutExtension(file.Path);
+//                var filled = name.EndsWith("-filled");
 
-                var fn = GetSvgPaths(
-                    name,
-                    content ?? "",
-                    filled);
+//                var fn = GetSvgPaths(
+//                    name,
+//                    content ?? "",
+//                    filled);
 
-                if (fn is null)
-                    continue;
+//                if (fn is null)
+//                    continue;
 
-                var f = fn.Value;
+//                var f = fn.Value;
 
-                var pathData = string.Join(", ", f.data);
+//                var pathData = string.Join(", ", f.data);
 
-                var pascalName = Regex.Replace(
-                    f.name?.ToLower() ?? "",
-                    "(^|[_-])(.)",
-                    x => x.Groups[2].Value.ToUpper());
+//                var pascalName = Regex.Replace(
+//                    f.name?.ToLower() ?? "",
+//                    "(^|[_-])(.)",
+//                    x => x.Groups[2].Value.ToUpper());
 
-                pascalName = $"Icon{pascalName}";
+//                pascalName = $"Icon{pascalName}";
 
-                enumLines.Add($"\t\t{pascalName},");
+//                enumLines.Add($"\t\t{pascalName},");
 
-                switchLines.AppendLine(
-                    $"\t\t\t\tcase {enumType}.{pascalName}:\n\t\t\t\t\t return new {isvgDataType}[] {{ {pathData} }};");
-            }
+//                switchLines.AppendLine(
+//                    $"\t\t\t\tcase {enumType}.{pascalName}:\n\t\t\t\t\t return new {isvgDataType}[] {{ {pathData} }};");
+//            }
 
-            var source = $@"// <auto-generated/>
-namespace TablerIcons 
-{{
-    [global::System.CodeDom.Compiler.GeneratedCode(""TablerIcons.Avalonia.Generator"", ""1.0.0"")]
-    public enum Icons
-    {{
-{string.Join("\n", enumLines.OrderBy(x => x))}
-    }}
+//            var source = $@"// <auto-generated/>
+//namespace TablerIcons 
+//{{
+//    [global::System.CodeDom.Compiler.GeneratedCode(""TablerIcons.Avalonia.Generator"", ""1.0.0"")]
+//    public enum Icons
+//    {{
+//{string.Join("\n", enumLines.OrderBy(x => x))}
+//    }}
 
-    [global::System.CodeDom.Compiler.GeneratedCode(""TablerIcons.Avalonia.Generator"", ""1.0.0"")]
-    internal static class IconsExtension 
-    {{
-        public static {isvgDataType}[] GetPathData(this {enumType} icon)
-        {{
-            switch (icon)
-            {{
-{switchLines}
-                default:
-                    return new {isvgDataType}[] {{}};
-            }}
-        }}
-    }}
-}}
-            ";
+//    [global::System.CodeDom.Compiler.GeneratedCode(""TablerIcons.Avalonia.Generator"", ""1.0.0"")]
+//    internal static class IconsExtension 
+//    {{
+//        public static {isvgDataType}[] GetPathData(this {enumType} icon)
+//        {{
+//            switch (icon)
+//            {{
+//{switchLines}
+//                default:
+//                    return new {isvgDataType}[] {{}};
+//            }}
+//        }}
+//    }}
+//}}
+//            ";
 
-            _source = source;
-            _fileCount = context.AdditionalFiles.Length;
+//            _source = source;
+//            _fileCount = context.AdditionalFiles.Length;
 
-            return source;
-        }
+//            return source;
+//        }
 
         private bool GetIsIcon(AdditionalText file)
         {

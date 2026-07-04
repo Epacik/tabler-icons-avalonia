@@ -3,14 +3,7 @@
     <File Path="Directory.Build.props" />
   </Folder>
   <Project Path="TablerIcons.Avalonia.Generator/TablerIcons.Avalonia.Generator.csproj" />
-  <Project Path="TablerIcons.Avalonia.Preview.Android/TablerIcons.Avalonia.Preview.Android.csproj">
-    <Deploy />
-  </Project>
-  <Project Path="TablerIcons.Avalonia.Preview.Browser/TablerIcons.Avalonia.Preview.Browser.csproj" />
   <Project Path="TablerIcons.Avalonia.Preview.Desktop/TablerIcons.Avalonia.Preview.Desktop.csproj" />
-  <Project Path="TablerIcons.Avalonia.Preview.iOS/TablerIcons.Avalonia.Preview.iOS.csproj">
-    <Deploy />
-  </Project>
   <Project Path="TablerIcons.Avalonia.Preview/TablerIcons.Avalonia.Preview.csproj" />
   <Project Path="TablerIcons.Avalonia/TablerIcons.Avalonia.csproj" />
 </Solution>

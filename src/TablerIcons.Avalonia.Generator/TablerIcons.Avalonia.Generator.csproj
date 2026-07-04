@@ -15,16 +15,16 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.4">
+        <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="5.6.0">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.6.0" />
-        <PackageReference Include="Microsoft.Net.Compilers.Toolset" Version="4.7.0">
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="5.6.0" />
+        <PackageReference Include="Microsoft.Net.Compilers.Toolset" Version="5.6.0">
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="System.Text.Json" Version="7.0.3" PrivateAssets="all" GeneratePathProperty="true" />
+        <PackageReference Include="System.Text.Json" Version="10.0.9" PrivateAssets="all" GeneratePathProperty="true" />
         
         <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
 
@@ -35,8 +35,8 @@
     </ItemGroup>
 
   <ItemGroup>
-    <OutlinedIconsSourceFiles Include="$(ProjectDir)/../../modules/tabler-icons/icons/outline/*.svg"/>
-    <FilledIconsSourceFiles Include="$(ProjectDir)/../../modules/tabler-icons/icons/filled/*.svg"/>
+    <OutlinedIconsSourceFiles Include="$(ProjectDir)/../../modules/tabler-icons/icons/outline/*.svg" />
+    <FilledIconsSourceFiles Include="$(ProjectDir)/../../modules/tabler-icons/icons/filled/*.svg" />
   </ItemGroup>
 
     

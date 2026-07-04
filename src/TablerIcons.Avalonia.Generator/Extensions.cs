@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -11,5 +11,7 @@ namespace TablerIcons.Generator
             key = pair.Key;
             value = pair.Value;
         }
+
+        public static string JoinStrings(this IEnumerable<string> strings, string separator) => string.Join(separator, strings);
     }
 }

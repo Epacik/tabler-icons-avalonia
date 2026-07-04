@@ -6,6 +6,7 @@ using Avalonia.Skia;
 using SkiaSharp;
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 
 namespace TablerIcons;
 
@@ -17,11 +18,11 @@ internal class TablerIconDrawOperation : ICustomDrawOperation
   private readonly float _strokeWidth;
   private readonly SKShader _sKShader;
   private readonly float _size;
-  private readonly ISvgData[] _svgData;
+  private readonly ImmutableArray<ISvgData> _svgData;
   //private readonly SKSurface _surface;
   //private readonly SKPoint _point;
 
-  public TablerIconDrawOperation(Rect rect, Icons glyph, ISvgData[] data, float strokeWidth, SKShader sKShader)
+  public TablerIconDrawOperation(Rect rect, Icons glyph, ImmutableArray<ISvgData> data, float strokeWidth, SKShader sKShader)
   {
       _rect = rect;
       _glyph = glyph;
